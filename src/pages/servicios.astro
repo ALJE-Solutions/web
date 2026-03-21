@@ -1,0 +1,84 @@
+---
+layout: "../layouts/Layout.astro"
+---
+
+
+<section class="servicios-hero">
+	<h1>Nuestros Servicios</h1>
+	<p>Ofrecemos una amplia gama de servicios digitales para potenciar tu negocio y ayudarte a alcanzar tus objetivos.</p>
+	<div class="servicios-list">
+		<div class="servicio">
+			<h2>Desarrollo Web</h2>
+			<p>Diseño y desarrollo de sitios web modernos, responsivos y optimizados para SEO.</p>
+		</div>
+		<div class="servicio">
+			<h2>Tiendas Online</h2>
+			<p>Implementación de e-commerce con pasarelas de pago seguras y gestión de inventario.</p>
+		</div>
+		<div class="servicio">
+			<h2>Branding & Identidad</h2>
+			<p>Creación de identidad visual, logotipos y manuales de marca para destacar en el mercado.</p>
+		</div>
+		<div class="servicio">
+			<h2>Marketing Digital</h2>
+			<p>Estrategias de marketing, gestión de redes sociales y campañas publicitarias efectivas.</p>
+		</div>
+		<div class="servicio">
+			<h2>Consultoría IT</h2>
+			<p>Asesoría tecnológica para optimizar procesos y adoptar nuevas herramientas digitales.</p>
+		</div>
+	</div>
+</section>
+<style>
+.servicios-hero {
+	background: linear-gradient(120deg, #f5f7fa 0%, #c9e7ff 100%);
+	border-radius: 18px;
+	box-shadow: 0 6px 32px rgba(100,255,218,0.13);
+	padding: 2.5rem 2rem;
+	margin: 2rem auto;
+	max-width: 900px;
+	animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+.servicios-hero h1 {
+	color: #0a192f;
+	font-size: 2.5rem;
+	margin-bottom: 1.2rem;
+	text-align: center;
+	letter-spacing: 2px;
+}
+.servicios-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+	margin-top: 2rem;
+}
+.servicio {
+	background: #fff;
+	border-radius: 14px;
+	box-shadow: 0 2px 12px rgba(10,25,47,0.08);
+	padding: 1.5rem 1.2rem;
+	min-width: 220px;
+	max-width: 270px;
+	flex: 1 1 220px;
+	text-align: center;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.servicio:hover {
+	transform: translateY(-8px) scale(1.04);
+	box-shadow: 0 8px 32px rgba(100,255,218,0.18);
+}
+.servicio h2 {
+	color: #64ffda;
+	margin-bottom: 0.7rem;
+}
+.servicio p {
+	color: #222;
+	font-size: 1.08rem;
+	margin-bottom: 0.5rem;
+}
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(40px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+</style>

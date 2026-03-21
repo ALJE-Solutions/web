@@ -1,0 +1,103 @@
+---
+layout: "../layouts/Layout.astro"
+---
+
+
+<section class="packs-hero">
+	<h1>Packs y Promociones</h1>
+	<p>Elige el pack que mejor se adapte a tus necesidades y lleva tu negocio al siguiente nivel. Todos nuestros packs incluyen asesoría personalizada y soporte premium.</p>
+	<div class="packs-list">
+		<div class="pack">
+			<h2>Pack Emprendedor</h2>
+			<ul>
+				<li>Landing page profesional</li>
+				<li>Dominio y hosting por 1 año</li>
+				<li>Soporte técnico básico</li>
+			</ul>
+			<span class="precio">$199 USD</span>
+		</div>
+		<div class="pack">
+			<h2>Pack PyME</h2>
+			<ul>
+				<li>Sitio web corporativo (hasta 5 secciones)</li>
+				<li>Integración con redes sociales</li>
+				<li>Soporte técnico avanzado</li>
+			</ul>
+			<span class="precio">$399 USD</span>
+		</div>
+		<div class="pack">
+			<h2>Pack Premium</h2>
+			<ul>
+				<li>Desarrollo a medida</li>
+				<li>SEO y analítica avanzada</li>
+				<li>Soporte prioritario 24/7</li>
+			</ul>
+			<span class="precio">$799 USD</span>
+		</div>
+	</div>
+</section>
+<style>
+.packs-hero {
+	background: linear-gradient(120deg, #fdf6e3 0%, #f5f7fa 100%);
+	border-radius: 18px;
+	box-shadow: 0 6px 32px rgba(100,255,218,0.13);
+	padding: 2.5rem 2rem;
+	margin: 2rem auto;
+	max-width: 900px;
+	animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+.packs-hero h1 {
+	color: #0a192f;
+	font-size: 2.5rem;
+	margin-bottom: 1.2rem;
+	text-align: center;
+	letter-spacing: 2px;
+}
+.packs-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+	margin-top: 2rem;
+}
+.pack {
+	background: #fff;
+	border-radius: 14px;
+	box-shadow: 0 2px 12px rgba(10,25,47,0.08);
+	padding: 1.5rem 1.2rem;
+	min-width: 220px;
+	max-width: 270px;
+	flex: 1 1 220px;
+	text-align: center;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.pack:hover {
+	transform: translateY(-8px) scale(1.04);
+	box-shadow: 0 8px 32px rgba(100,255,218,0.18);
+}
+.pack h2 {
+	color: #64ffda;
+	margin-bottom: 0.7rem;
+}
+.pack ul {
+	color: #222;
+	font-size: 1.08rem;
+	margin-bottom: 1rem;
+	text-align: left;
+	padding-left: 1.2rem;
+}
+.precio {
+	display: inline-block;
+	margin-top: 0.7rem;
+	font-size: 1.25rem;
+	color: #0a192f;
+	font-weight: bold;
+	background: #e6f7ff;
+	border-radius: 8px;
+	padding: 0.3rem 1.1rem;
+}
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(40px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+</style>

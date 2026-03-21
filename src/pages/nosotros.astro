@@ -1,0 +1,56 @@
+---
+layout: "../layouts/Layout.astro"
+---
+
+<section class="hero-nosotros">
+	<h1>Sobre Nosotros</h1>
+	<p>En <b>ALJE Solutions</b> somos una empresa apasionada por la innovación y la excelencia tecnológica. Nuestro equipo está formado por profesionales con amplia experiencia en el sector, comprometidos con brindar soluciones digitales de alto impacto.</p>
+	<div class="valores">
+		<h2>Misión</h2>
+		<p>Impulsar el crecimiento de nuestros clientes a través de servicios digitales personalizados y de calidad.</p>
+		<h2>Visión</h2>
+		<p>Ser referentes en el sector tecnológico, destacando por nuestra creatividad, ética y resultados.</p>
+		<h2>Valores</h2>
+		<ul>
+			<li>Innovación constante</li>
+			<li>Compromiso con el cliente</li>
+			<li>Transparencia y confianza</li>
+			<li>Trabajo en equipo</li>
+		</ul>
+	</div>
+</section>
+<style>
+.hero-nosotros {
+	background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+	border-radius: 18px;
+	box-shadow: 0 6px 32px rgba(100,255,218,0.13);
+	padding: 2.5rem 2rem;
+	margin: 2rem auto;
+	max-width: 700px;
+	animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+.hero-nosotros h1 {
+	color: #0a192f;
+	font-size: 2.5rem;
+	margin-bottom: 1.2rem;
+	text-align: center;
+	letter-spacing: 2px;
+}
+.hero-nosotros h2 {
+	color: #64ffda;
+	margin-top: 1.5rem;
+}
+.hero-nosotros p, .hero-nosotros ul {
+	color: #222;
+	font-size: 1.15rem;
+	line-height: 1.7;
+}
+.valores ul {
+	list-style: disc inside;
+	margin: 0.5rem 0 0 1rem;
+}
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(40px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+</style>
