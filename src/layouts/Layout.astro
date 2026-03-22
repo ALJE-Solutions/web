@@ -3,23 +3,35 @@ import Header from '../pages/header.astro';
 import Footer from '../pages/footer.astro';
 ---
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALJE Solutions</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+
 <Header />
 
 <main>
   <slot />
 </main>
 
-
 <Footer />
+
+</body>
+</html>
 
 <style>
   :root {
     --primary: #0a2e1a;
-    --accent: #1ed760;
-    --accent-dark: #159c43;
+    --accent: #0fa882;
+    --accent-dark: #0a8a6a;
     --bg: #f7faf7;
     --radius: 16px;
-    --shadow: 0 4px 32px rgba(30,215,96,0.08);
+    --shadow: 0 4px 32px rgba(15,168,130,0.08);
     --transition: 0.3s cubic-bezier(.4,0,.2,1);
   }
   html, body {
@@ -46,7 +58,7 @@ import Footer from '../pages/footer.astro';
     margin-top: 3rem;
     font-size: 1rem;
     letter-spacing: 1px;
-    box-shadow: 0 -2px 8px rgba(30,215,96,0.04);
+    box-shadow: 0 -2px 8px rgba(15,168,130,0.04);
   }
   .footer-links {
     margin-bottom: 1rem;

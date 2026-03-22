@@ -1,7 +1,8 @@
 ---
-layout: "../layouts/Layout.astro"
+import Layout from '../layouts/Layout.astro';
 ---
 
+<Layout>
 <section class="hero-nosotros">
 	<h1>Sobre Nosotros</h1>
 	<p>En <b>ALJE Solutions</b> somos una empresa apasionada por la innovación y la excelencia tecnológica. Nuestro equipo está formado por profesionales con amplia experiencia en el sector, comprometidos con brindar soluciones digitales de alto impacto.</p>
@@ -19,6 +20,7 @@ layout: "../layouts/Layout.astro"
 		</ul>
 	</div>
 </section>
+</Layout>
 <style>
 .hero-nosotros {
 	background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
@@ -37,7 +39,7 @@ layout: "../layouts/Layout.astro"
 	letter-spacing: 2px;
 }
 .hero-nosotros h2 {
-	color: #64ffda;
+	color: #0fa882;
 	margin-top: 1.5rem;
 }
 .hero-nosotros p, .hero-nosotros ul {

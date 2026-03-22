@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<section class="contacto-hero">
+		<h1>Contacto</h1>
+		<p class="subtitulo">¿Tienes un proyecto en mente? Cuéntanos y te responderemos lo antes posible.</p>
+	</section>
+
+	<section class="contacto-contenido">
+		<div class="contacto-info">
+			<h2>Escríbenos</h2>
+			<p>Puedes contactarnos directamente por correo electrónico o rellenar el formulario y nos pondremos en contacto contigo.</p>
+			<div class="info-item">
+				<span class="info-icon">📧</span>
+				<a href="mailto:contacto@aljesolutions.com">contacto@aljesolutions.com</a>
+			</div>
+			<div class="info-item">
+				<span class="info-icon">📍</span>
+				<span>España</span>
+			</div>
+		</div>
+
+		<form class="contacto-form" action="https://formsubmit.co/contacto@aljesolutions.com" method="POST">
+			<!-- Configuración de FormSubmit -->
+			<input type="hidden" name="_subject" value="Nuevo mensaje desde la web de ALJE Solutions">
+			<input type="hidden" name="_captcha" value="true">
+			<input type="hidden" name="_next" value="https://aljesolutions.com/contacto?enviado=true">
+			<input type="hidden" name="_template" value="table">
+			<!-- Honeypot anti-spam -->
+			<input type="text" name="_honey" style="display:none">
+
+			<div class="form-grupo">
+				<label for="nombre">Nombre *</label>
+				<input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo" />
+			</div>
+
+			<div class="form-grupo">
+				<label for="email">Correo electrónico *</label>
+				<input type="email" id="email" name="email" required placeholder="tu@email.com" />
+			</div>
+
+			<div class="form-grupo">
+				<label for="asunto">Asunto</label>
+				<input type="text" id="asunto" name="asunto" placeholder="¿En qué podemos ayudarte?" />
+			</div>
+
+			<div class="form-grupo">
+				<label for="mensaje">Mensaje *</label>
+				<textarea id="mensaje" name="mensaje" rows="6" required placeholder="Describe tu proyecto o consulta..."></textarea>
+			</div>
+
+			<button type="submit" class="btn-enviar">Enviar mensaje</button>
+		</form>
+	</section>
+
+	<div class="mensaje-exito" id="mensajeExito">
+		<div class="exito-contenido">
+			<span class="exito-icon">✅</span>
+			<h3>¡Mensaje enviado!</h3>
+			<p>Gracias por contactarnos. Te responderemos lo antes posible.</p>
+		</div>
+	</div>
+</Layout>
+
+<script>
+	// Mostrar mensaje de éxito si viene de un envío exitoso
+	if (window.location.search.includes('enviado=true')) {
+		const msg = document.getElementById('mensajeExito');
+		if (msg) msg.classList.add('visible');
+		// Limpiar la URL
+		setTimeout(() => {
+			window.history.replaceState({}, '', '/contacto');
+		}, 500);
+	}
+</script>
+
+<style>
+.contacto-hero {
+	text-align: center;
+	padding: 4rem 1.5rem 2rem;
+	animation: fadeIn 0.7s ease;
+}
+.contacto-hero h1 {
+	font-size: 2.8rem;
+	color: #0a192f;
+	font-weight: 800;
+	letter-spacing: 2px;
+	margin-bottom: 0.8rem;
+}
+.subtitulo {
+	font-size: 1.2rem;
+	color: #555;
+	max-width: 550px;
+	margin: 0 auto;
+}
+
+.contacto-contenido {
+	display: flex;
+	gap: 3rem;
+	max-width: 960px;
+	margin: 0 auto 4rem;
+	padding: 0 1.5rem;
+	animation: fadeIn 0.9s ease;
+}
+
+/* Info lateral */
+.contacto-info {
+	flex: 1;
+	min-width: 250px;
+}
+.contacto-info h2 {
+	color: #0fa882;
+	font-size: 1.6rem;
+	margin-bottom: 0.8rem;
+}
+.contacto-info p {
+	color: #444;
+	line-height: 1.7;
+	margin-bottom: 1.5rem;
+}
+.info-item {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+	margin-bottom: 1rem;
+	font-size: 1.05rem;
+}
+.info-icon {
+	font-size: 1.3rem;
+}
+.info-item a {
+	color: #0fa882;
+	font-weight: 600;
+	text-decoration: none;
+	transition: color 0.2s;
+}
+.info-item a:hover {
+	color: #0a8a6a;
+	text-decoration: underline;
+}
+
+/* Formulario */
+.contacto-form {
+	flex: 1.3;
+	background: #fff;
+	border-radius: 16px;
+	padding: 2.5rem 2rem;
+	box-shadow: 0 4px 24px rgba(10,25,47,0.06);
+}
+.form-grupo {
+	margin-bottom: 1.3rem;
+}
+.form-grupo label {
+	display: block;
+	font-weight: 600;
+	color: #0a192f;
+	margin-bottom: 0.4rem;
+	font-size: 0.95rem;
+}
+.form-grupo input,
+.form-grupo textarea {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	border: 2px solid #e0e0e0;
+	border-radius: 10px;
+	font-size: 1rem;
+	font-family: inherit;
+	background: #fafafa;
+	transition: border-color 0.2s, box-shadow 0.2s;
+	box-sizing: border-box;
+}
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+	outline: none;
+	border-color: #0fa882;
+	box-shadow: 0 0 0 3px rgba(15,168,130,0.12);
+	background: #fff;
+}
+.form-grupo textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+.btn-enviar {
+	display: inline-block;
+	width: 100%;
+	padding: 0.9rem 2rem;
+	background: linear-gradient(90deg, #0fa882 0%, #0a192f 100%);
+	color: #fff;
+	font-weight: 700;
+	font-size: 1.1rem;
+	border: none;
+	border-radius: 32px;
+	cursor: pointer;
+	letter-spacing: 1px;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 4px 16px rgba(15,168,130,0.15);
+}
+.btn-enviar:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 24px rgba(15,168,130,0.25);
+}
+.btn-enviar:active {
+	transform: translateY(0);
+}
+
+/* Mensaje de éxito */
+.mensaje-exito {
+	display: none;
+	position: fixed;
+	top: 0; left: 0; right: 0; bottom: 0;
+	background: rgba(0,0,0,0.4);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+}
+.mensaje-exito.visible {
+	display: flex;
+}
+.exito-contenido {
+	background: #fff;
+	border-radius: 16px;
+	padding: 2.5rem 2rem;
+	text-align: center;
+	box-shadow: 0 8px 32px rgba(10,25,47,0.12);
+	max-width: 400px;
+	animation: fadeIn 0.4s ease;
+}
+.exito-icon {
+	font-size: 3rem;
+}
+.exito-contenido h3 {
+	color: #0fa882;
+	margin: 0.8rem 0 0.5rem;
+	font-size: 1.5rem;
+}
+.exito-contenido p {
+	color: #555;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+	.contacto-contenido {
+		flex-direction: column;
+		gap: 2rem;
+	}
+	.contacto-form {
+		padding: 1.5rem 1.2rem;
+	}
+	.contacto-hero h1 {
+		font-size: 2rem;
+	}
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(30px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+</style>

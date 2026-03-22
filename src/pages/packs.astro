@@ -1,8 +1,8 @@
 ---
-layout: "../layouts/Layout.astro"
+import Layout from '../layouts/Layout.astro';
 ---
 
-
+<Layout>
 <section class="packs-hero">
 	<h1>Packs y Promociones</h1>
 	<p>Elige el pack que mejor se adapte a tus necesidades y lleva tu negocio al siguiente nivel. Todos nuestros packs incluyen asesoría personalizada y soporte premium.</p>
@@ -36,6 +36,7 @@ layout: "../layouts/Layout.astro"
 		</div>
 	</div>
 </section>
+</Layout>
 <style>
 .packs-hero {
 	background: linear-gradient(120deg, #fdf6e3 0%, #f5f7fa 100%);
@@ -76,7 +77,7 @@ layout: "../layouts/Layout.astro"
 	box-shadow: 0 8px 32px rgba(100,255,218,0.18);
 }
 .pack h2 {
-	color: #64ffda;
+	color: #0fa882;
 	margin-bottom: 0.7rem;
 }
 .pack ul {

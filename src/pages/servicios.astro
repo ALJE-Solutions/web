@@ -1,84 +1,275 @@
 ---
-layout: "../layouts/Layout.astro"
+import Layout from '../layouts/Layout.astro';
 ---
 
-
+<Layout>
 <section class="servicios-hero">
-	<h1>Nuestros Servicios</h1>
-	<p>Ofrecemos una amplia gama de servicios digitales para potenciar tu negocio y ayudarte a alcanzar tus objetivos.</p>
-	<div class="servicios-list">
-		<div class="servicio">
-			<h2>Desarrollo Web</h2>
-			<p>Diseño y desarrollo de sitios web modernos, responsivos y optimizados para SEO.</p>
+	<h1>Desarrollo Web</h1>
+	<p class="subtitulo">Soluciones digitales adaptadas a cada etapa de tu negocio.</p>
+
+	<div class="packs-grid">
+		<!-- PACK ESENCIAL -->
+		<div class="pack pack-esencial">
+			<div class="pack-badge esencial">Esencial</div>
+			<p class="pack-desc">Solución rápida y efectiva para tener presencia online y captar clientes.</p>
+			<h3>¿Qué incluye?</h3>
+			<ul>
+				<li>Landing Page optimizada para conversión</li>
+				<li>Diseño responsive (móvil, tablet, desktop)</li>
+				<li>Secciones básicas (hero, servicios, contacto)</li>
+				<li>Formulario de contacto e integración con WhatsApp/Redes Sociales</li>
+				<li>SEO básico y entrega rápida</li>
+			</ul>
+			<div class="pack-ideal">
+				<strong>Ideal para:</strong> Pequeños negocios, validación de ideas y captación de clientes.
+			</div>
+			<a href="/contacto" class="pack-btn esencial-btn">Solicitar presupuesto</a>
 		</div>
-		<div class="servicio">
-			<h2>Tiendas Online</h2>
-			<p>Implementación de e-commerce con pasarelas de pago seguras y gestión de inventario.</p>
+
+		<!-- PACK PROFESIONAL -->
+		<div class="pack pack-profesional destacado">
+			<div class="pack-badge profesional">Profesional</div>
+			<span class="tag-popular">Más popular</span>
+			<p class="pack-desc">Web completa para empresas que buscan presencia sólida y profesional.</p>
+			<h3>¿Qué incluye?</h3>
+			<ul>
+				<li>Web corporativa multi-página (Inicio, Servicios, Sobre nosotros, Contacto)</li>
+				<li>Diseño personalizado (UX/UI)</li>
+				<li>Optimización SEO avanzada y de rendimiento</li>
+				<li>Sistema autogestionable (CMS)</li>
+				<li>Integración con herramientas de marketing</li>
+			</ul>
+			<div class="pack-ideal">
+				<strong>Ideal para:</strong> Empresas, profesionales y negocios en crecimiento.
+			</div>
+			<a href="/contacto" class="pack-btn profesional-btn">Solicitar presupuesto</a>
 		</div>
-		<div class="servicio">
-			<h2>Branding & Identidad</h2>
-			<p>Creación de identidad visual, logotipos y manuales de marca para destacar en el mercado.</p>
-		</div>
-		<div class="servicio">
-			<h2>Marketing Digital</h2>
-			<p>Estrategias de marketing, gestión de redes sociales y campañas publicitarias efectivas.</p>
-		</div>
-		<div class="servicio">
-			<h2>Consultoría IT</h2>
-			<p>Asesoría tecnológica para optimizar procesos y adoptar nuevas herramientas digitales.</p>
+
+		<!-- PACK PREMIUM -->
+		<div class="pack pack-premium">
+			<div class="pack-badge premium">Premium</div>
+			<p class="pack-desc">Solución avanzada con funcionalidades completas y orientada a la escalabilidad.</p>
+			<h3>¿Qué incluye?</h3>
+			<ul>
+				<li>Ecommerce o plataforma avanzada</li>
+				<li>Sistema de reservas o funcionalidades personalizadas</li>
+				<li>Área privada / usuarios (opcional)</li>
+				<li>Integraciones externas (APIs, pasarelas de pago, etc.)</li>
+				<li>Analítica avanzada y seguridad reforzada</li>
+			</ul>
+			<div class="pack-ideal">
+				<strong>Ideal para:</strong> Tiendas online, negocios digitales y proyectos que requieren automatización.
+			</div>
+			<a href="/contacto" class="pack-btn premium-btn">Solicitar presupuesto</a>
 		</div>
 	</div>
 </section>
+</Layout>
+
 <style>
 .servicios-hero {
-	background: linear-gradient(120deg, #f5f7fa 0%, #c9e7ff 100%);
-	border-radius: 18px;
-	box-shadow: 0 6px 32px rgba(100,255,218,0.13);
-	padding: 2.5rem 2rem;
-	margin: 2rem auto;
-	max-width: 900px;
-	animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+	padding: 3rem 1.5rem 4rem;
+	margin: 0 auto;
+	max-width: 1100px;
+	animation: fadeIn 0.8s ease;
 }
 .servicios-hero h1 {
 	color: #0a192f;
-	font-size: 2.5rem;
-	margin-bottom: 1.2rem;
+	font-size: 2.8rem;
+	font-weight: 800;
 	text-align: center;
 	letter-spacing: 2px;
-}
-.servicios-list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 2rem;
-	justify-content: center;
-	margin-top: 2rem;
-}
-.servicio {
-	background: #fff;
-	border-radius: 14px;
-	box-shadow: 0 2px 12px rgba(10,25,47,0.08);
-	padding: 1.5rem 1.2rem;
-	min-width: 220px;
-	max-width: 270px;
-	flex: 1 1 220px;
-	text-align: center;
-	transition: transform 0.2s, box-shadow 0.2s;
-}
-.servicio:hover {
-	transform: translateY(-8px) scale(1.04);
-	box-shadow: 0 8px 32px rgba(100,255,218,0.18);
-}
-.servicio h2 {
-	color: #64ffda;
-	margin-bottom: 0.7rem;
-}
-.servicio p {
-	color: #222;
-	font-size: 1.08rem;
 	margin-bottom: 0.5rem;
 }
+.subtitulo {
+	text-align: center;
+	color: #555;
+	font-size: 1.2rem;
+	margin-bottom: 3rem;
+}
+
+/* Grid de packs */
+.packs-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+	align-items: start;
+}
+
+/* Tarjeta de pack */
+.pack {
+	background: #fff;
+	border-radius: 18px;
+	padding: 2rem 1.8rem 2.2rem;
+	box-shadow: 0 2px 16px rgba(10,25,47,0.06);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	transition: transform 0.25s, box-shadow 0.25s;
+}
+.pack:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 8px 32px rgba(10,25,47,0.12);
+}
+
+/* Pack destacado (Profesional) */
+.pack.destacado {
+	border: 2.5px solid #0fa882;
+	box-shadow: 0 4px 24px rgba(15,168,130,0.15);
+	transform: scale(1.03);
+}
+.pack.destacado:hover {
+	transform: scale(1.03) translateY(-6px);
+	box-shadow: 0 8px 36px rgba(15,168,130,0.22);
+}
+
+/* Badges de color */
+.pack-badge {
+	display: inline-block;
+	font-weight: 800;
+	font-size: 1.35rem;
+	letter-spacing: 1px;
+	margin-bottom: 0.8rem;
+	padding: 0.3rem 0;
+}
+.pack-badge.esencial {
+	color: #0fa882;
+}
+.pack-badge.profesional {
+	color: #2563eb;
+}
+.pack-badge.premium {
+	color: #7c3aed;
+}
+
+/* Tag popular */
+.tag-popular {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background: #0fa882;
+	color: #fff;
+	font-size: 0.78rem;
+	font-weight: 700;
+	padding: 0.25rem 0.8rem;
+	border-radius: 20px;
+	letter-spacing: 0.5px;
+}
+
+/* Descripción */
+.pack-desc {
+	color: #555;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 1.2rem;
+}
+
+/* Subtítulo incluye */
+.pack h3 {
+	color: #0a192f;
+	font-size: 1rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+/* Lista */
+.pack ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 1.3rem 0;
+}
+.pack li {
+	position: relative;
+	padding-left: 1.5rem;
+	color: #333;
+	font-size: 0.98rem;
+	line-height: 1.65;
+	margin-bottom: 0.4rem;
+}
+.pack li::before {
+	content: '✓';
+	position: absolute;
+	left: 0;
+	font-weight: 700;
+}
+.pack-esencial li::before { color: #0fa882; }
+.pack-profesional li::before { color: #2563eb; }
+.pack-premium li::before { color: #7c3aed; }
+
+/* Ideal para */
+.pack-ideal {
+	background: #f8f9fb;
+	border-radius: 10px;
+	padding: 0.75rem 1rem;
+	font-size: 0.93rem;
+	color: #444;
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+	flex-grow: 1;
+}
+
+/* Botones */
+.pack-btn {
+	display: block;
+	text-align: center;
+	padding: 0.85rem 1.5rem;
+	border-radius: 32px;
+	font-weight: 700;
+	font-size: 1rem;
+	text-decoration: none;
+	letter-spacing: 0.5px;
+	transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.pack-btn:hover {
+	transform: translateY(-2px);
+}
+.esencial-btn {
+	background: #0fa882;
+	color: #fff;
+	box-shadow: 0 4px 16px rgba(15,168,130,0.18);
+}
+.esencial-btn:hover {
+	box-shadow: 0 6px 24px rgba(15,168,130,0.28);
+}
+.profesional-btn {
+	background: #2563eb;
+	color: #fff;
+	box-shadow: 0 4px 16px rgba(37,99,235,0.18);
+}
+.profesional-btn:hover {
+	box-shadow: 0 6px 24px rgba(37,99,235,0.28);
+}
+.premium-btn {
+	background: #7c3aed;
+	color: #fff;
+	box-shadow: 0 4px 16px rgba(124,58,237,0.18);
+}
+.premium-btn:hover {
+	box-shadow: 0 6px 24px rgba(124,58,237,0.28);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+	.packs-grid {
+		grid-template-columns: 1fr;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+	.pack.destacado {
+		transform: scale(1);
+	}
+	.pack.destacado:hover {
+		transform: translateY(-6px);
+	}
+	.servicios-hero h1 {
+		font-size: 2rem;
+	}
+}
+
 @keyframes fadeIn {
-	from { opacity: 0; transform: translateY(40px); }
+	from { opacity: 0; transform: translateY(30px); }
 	to { opacity: 1; transform: translateY(0); }
 }
 </style>
