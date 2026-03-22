@@ -3,8 +3,9 @@
 <style>
 .header {
   width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 16px rgba(15,168,130,0.07);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(10,25,47,0.06);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -26,9 +27,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #fff;
+  background: transparent;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(15,168,130,0.10);
   transition: transform 0.2s;
 }
 .nav-brand img:hover {
@@ -38,37 +38,34 @@
   font-size: 1.7rem;
   font-weight: 900;
   letter-spacing: 2px;
-  color: #0fa882;
-  text-shadow: 0 2px 8px #e6f7f1;
+  color: #0a192f;
 }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2.2rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  transition: gap 0.2s;
 }
 .nav-links li {
   display: flex;
   align-items: center;
 }
 .nav-links a {
-  color: #0a2e1a;
+  color: #333;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.08rem;
-  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
   position: relative;
-  padding: 0.2rem 0.1rem;
+  padding: 0.3rem 0.1rem;
   border-radius: 6px;
   outline: none;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s;
 }
 .nav-links a:focus {
   box-shadow: 0 0 0 2px #0fa882;
-  background: #e6f7f1;
 }
 .nav-links a::after {
   content: '';
@@ -76,15 +73,30 @@
   width: 0;
   height: 2px;
   background: #0fa882;
-  transition: width 0.2s;
-  margin: 0 auto;
+  transition: width 0.25s;
+  margin: 2px auto 0;
 }
 .nav-links a:hover {
-  color: #0a8a6a;
-  background: #e6f7f1;
+  color: #0fa882;
 }
 .nav-links a:hover::after {
   width: 100%;
+}
+.nav-cta {
+  background: #0fa882;
+  color: #fff !important;
+  padding: 0.55rem 1.3rem !important;
+  border-radius: 8px;
+  font-weight: 700 !important;
+  transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover {
+  background: #0a8a6a;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+.nav-cta::after {
+  display: none !important;
 }
 .menu-toggle {
   display: none;
@@ -92,8 +104,8 @@
   justify-content: center;
   width: 38px;
   height: 38px;
-  background: #e6f7f1;
-  border: none;
+  background: #f0faf6;
+  border: 1px solid rgba(15,168,130,0.15);
   border-radius: 8px;
   cursor: pointer;
   align-items: center;
@@ -102,10 +114,10 @@
 }
 .menu-toggle span {
   display: block;
-  width: 24px;
-  height: 3px;
+  width: 22px;
+  height: 2px;
   background: #0fa882;
-  margin: 4px 0;
+  margin: 3px 0;
   border-radius: 2px;
   transition: all 0.3s;
 }
@@ -121,11 +133,12 @@
     background: #fff;
     flex-direction: column;
     align-items: flex-start;
-    width: 220px;
-    box-shadow: 0 8px 32px rgba(15,168,130,0.13);
+    width: 240px;
+    box-shadow: 0 8px 32px rgba(10,25,47,0.1);
     border-radius: 0 0 0 16px;
-    padding: 1.2rem 1.2rem 1.2rem 1.5rem;
-    gap: 1.2rem;
+    border-left: 1px solid rgba(10,25,47,0.06);
+    padding: 1.5rem;
+    gap: 1rem;
     display: none;
   }
   .nav-links.open {
@@ -161,12 +174,11 @@
       <span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/nosotros">Nosotros</a></li>
-      <li><a href="/servicios">Servicios</a></li>
-      <li><a href="/packs">Packs</a></li>
-      <li><a href="/ejemplos">Nuestros Trabajos</a></li>
-      <li><a href="/contacto">Contacto</a></li>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
     </ul>
   </div>
 </header>

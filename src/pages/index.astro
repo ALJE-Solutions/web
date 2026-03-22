@@ -3,64 +3,721 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<main style="max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;">
-		<!-- HERO -->
-		<section id="hero" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 75vh; text-align: center; background: linear-gradient(120deg, #e6f7ff 0%, #fff 100%); border-radius: 0 0 32px 32px; box-shadow: 0 8px 32px rgba(10,25,47,0.07); position: relative; overflow: hidden; margin-top: 3.5rem;">
-			<div style="position: absolute; top: -60px; left: -60px; width: 220px; height: 220px; background: radial-gradient(circle, #64ffda55 0%, transparent 80%); z-index: 0;"></div>
-			<div style="position: absolute; bottom: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, #0a192f22 0%, transparent 80%); z-index: 0;"></div>
-			<h1 style="font-size: 3.2rem; margin-bottom: 1.1rem; color: #0a192f; font-weight: 800; letter-spacing: 2px; z-index: 1; text-shadow: 0 2px 16px #e6f7ff;">ALJE <span style='color:#0fa882;'>Solutions</span></h1>
-			<p style="font-size: 1.35rem; color: #0a192f; margin-bottom: 2.7rem; font-weight: 500; z-index: 1; max-width: 520px;">Impulsamos la innovación y el crecimiento de tu negocio con tecnología de vanguardia y soluciones a medida.</p>
-			<a href="#contacto" style="display: inline-block; background: linear-gradient(90deg, #0fa882 0%, #0a192f 100%); color: #fff; font-weight: 700; padding: 1rem 2.5rem; border-radius: 32px; font-size: 1.15rem; box-shadow: 0 4px 24px rgba(15,168,130,0.18); text-decoration: none; transition: background 0.2s, color 0.2s, transform 0.2s; z-index: 1; letter-spacing: 1px; border: none; cursor: pointer;">
-				Contáctanos
-			</a>
-		</section>
 
-		<!-- SERVICIOS -->
-		<section id="servicios">
-			<h2>Servicios</h2>
-			<div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
-				<div style="flex: 1 1 260px; min-width: 260px; max-width: 340px; background: #e6f7ff; border-radius: 12px; box-shadow: 0 2px 8px rgba(10,25,47,0.04); padding: 2rem 1.2rem; margin-bottom: 1rem; transition: box-shadow 0.2s, transform 0.2s;">
-					<h3 style="color: #0a192f;">Desarrollo Web</h3>
-					<p>Sitios y aplicaciones web a medida, usando tecnologías modernas.</p>
+	<!-- ═══════════════ HERO ═══════════════ -->
+	<section id="inicio" class="hero">
+		<div class="hero-bg"></div>
+		<div class="hero-content">
+			<p class="hero-tag">SOLUCIONES DIGITALES A MEDIDA</p>
+			<h1>Impulsamos tu negocio con <span class="accent">tecnología</span></h1>
+			<p class="hero-sub">Desarrollo web, consultoría IT y automatización para empresas que quieren crecer en el mundo digital.</p>
+			<div class="hero-btns">
+				<a href="#contacto" class="btn-primary">Solicitar presupuesto</a>
+				<a href="#servicios" class="btn-secondary">Nuestros servicios</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════ SERVICIOS ═══════════════ -->
+	<section id="servicios" class="section">
+		<p class="section-tag">NUESTROS SERVICIOS</p>
+		<h2 class="section-title">Soluciones digitales para cada etapa de tu negocio</h2>
+		<p class="section-sub">Ofrecemos servicios integrales para potenciar tu presencia digital y hacer crecer tu negocio.</p>
+
+		<div class="services-grid">
+			<div class="service-card">
+				<div class="service-icon">🌐</div>
+				<h3>Desarrollo Web</h3>
+				<p>Sitios web modernos, responsivos y optimizados para buscadores que destacan en el mercado digital.</p>
+				<ul class="service-features">
+					<li>Diseño web responsive</li>
+					<li>Optimización SEO</li>
+					<li>Integración con CMS</li>
+				</ul>
+			</div>
+			<div class="service-card">
+				<div class="service-icon">🛒</div>
+				<h3>Tiendas Online</h3>
+				<p>E-commerce completo con pasarelas de pago seguras, gestión de inventario y experiencia de compra optimizada.</p>
+				<ul class="service-features">
+					<li>Pasarelas de pago</li>
+					<li>Gestión de inventario</li>
+					<li>Diseño UX orientado a conversión</li>
+				</ul>
+			</div>
+			<div class="service-card">
+				<div class="service-icon">💡</div>
+				<h3>Consultoría IT</h3>
+				<p>Asesoría tecnológica para optimizar procesos y adoptar las herramientas digitales que tu negocio necesita.</p>
+				<ul class="service-features">
+					<li>Análisis de necesidades</li>
+					<li>Transformación digital</li>
+					<li>Optimización de procesos</li>
+				</ul>
+			</div>
+			<div class="service-card">
+				<div class="service-icon">⚙️</div>
+				<h3>Automatización</h3>
+				<p>Soluciones inteligentes de automatización para liberar tiempo y aumentar la productividad de tu equipo.</p>
+				<ul class="service-features">
+					<li>Automatización de flujos</li>
+					<li>Integración de sistemas</li>
+					<li>Informes automáticos</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════ PACKS ═══════════════ -->
+	<section id="packs" class="section section-alt">
+		<p class="section-tag">PLANES</p>
+		<h2 class="section-title">Elige el plan que mejor se adapte a ti</h2>
+		<p class="section-sub">Desde una landing page hasta una plataforma completa, tenemos la solución para tu proyecto.</p>
+
+		<div class="packs-grid">
+			<div class="pack-card">
+				<div class="pack-header esencial-bg">
+					<span class="pack-name">Esencial</span>
 				</div>
-				<div style="flex: 1 1 260px; min-width: 260px; max-width: 340px; background: #e6f7ff; border-radius: 12px; box-shadow: 0 2px 8px rgba(10,25,47,0.04); padding: 2rem 1.2rem; margin-bottom: 1rem; transition: box-shadow 0.2s, transform 0.2s;">
-					<h3 style="color: #0a192f;">Consultoría IT</h3>
-					<p>Asesoría en transformación digital y optimización de procesos.</p>
+				<p class="pack-desc">Solución rápida y efectiva para tener presencia online y captar clientes.</p>
+				<ul class="pack-features">
+					<li>Landing Page optimizada para conversión</li>
+					<li>Diseño responsive (móvil, tablet, desktop)</li>
+					<li>Secciones básicas (hero, servicios, contacto)</li>
+					<li>Formulario de contacto + WhatsApp</li>
+					<li>SEO básico y entrega rápida</li>
+				</ul>
+				<p class="pack-ideal">Ideal para pequeños negocios y validación de ideas.</p>
+				<a href="#contacto" class="btn-pack esencial-btn">Solicitar presupuesto</a>
+			</div>
+
+			<div class="pack-card pack-featured">
+				<div class="pack-popular">Más popular</div>
+				<div class="pack-header profesional-bg">
+					<span class="pack-name">Profesional</span>
 				</div>
-				<div style="flex: 1 1 260px; min-width: 260px; max-width: 340px; background: #e6f7ff; border-radius: 12px; box-shadow: 0 2px 8px rgba(10,25,47,0.04); padding: 2rem 1.2rem; margin-bottom: 1rem; transition: box-shadow 0.2s, transform 0.2s;">
-					<h3 style="color: #0a192f;">Automatización</h3>
-					<p>Implementación de soluciones para automatizar tareas y flujos de trabajo.</p>
+				<p class="pack-desc">Web completa para empresas que buscan presencia sólida y profesional.</p>
+				<ul class="pack-features">
+					<li>Web corporativa multi-página</li>
+					<li>Diseño personalizado (UX/UI)</li>
+					<li>Optimización SEO avanzada</li>
+					<li>Sistema autogestionable (CMS)</li>
+					<li>Integración con herramientas externas</li>
+				</ul>
+				<p class="pack-ideal">Ideal para empresas y negocios en crecimiento.</p>
+				<a href="#contacto" class="btn-pack profesional-btn">Solicitar presupuesto</a>
+			</div>
+
+			<div class="pack-card">
+				<div class="pack-header premium-bg">
+					<span class="pack-name">Premium</span>
+				</div>
+				<p class="pack-desc">Solución avanzada con funcionalidades completas y orientada a la escalabilidad.</p>
+				<ul class="pack-features">
+					<li>Ecommerce o plataforma avanzada</li>
+					<li>Sistema de reservas personalizado</li>
+					<li>Área privada / usuarios</li>
+					<li>Integraciones externas (APIs, pagos)</li>
+					<li>Analítica avanzada y seguridad reforzada</li>
+				</ul>
+				<p class="pack-ideal">Ideal para tiendas online y negocios digitales.</p>
+				<a href="#contacto" class="btn-pack premium-btn">Solicitar presupuesto</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════ NOSOTROS ═══════════════ -->
+	<section id="nosotros" class="section">
+		<p class="section-tag">¿QUIÉNES SOMOS?</p>
+		<h2 class="section-title">Transformamos tu visión en realidad digital</h2>
+		<p class="section-sub">En ALJE Solutions combinamos creatividad, experiencia técnica y estrategia de negocio para crear soluciones digitales que impulsan el crecimiento de tu empresa.</p>
+
+		<div class="about-grid">
+			<div class="about-card">
+				<div class="about-icon">🎯</div>
+				<h3>Enfoque personalizado</h3>
+				<p>Cada proyecto es único. Trabajamos contigo para entender tus necesidades y crear soluciones a medida.</p>
+			</div>
+			<div class="about-card">
+				<div class="about-icon">🚀</div>
+				<h3>Tecnología de vanguardia</h3>
+				<p>Utilizamos las últimas tecnologías para garantizar que tu proyecto sea robusto, escalable y preparado para el futuro.</p>
+			</div>
+			<div class="about-card">
+				<div class="about-icon">🤝</div>
+				<h3>Comunicación constante</h3>
+				<p>Mantenemos comunicación fluida durante todo el proceso, asegurándonos de que estés informado en cada etapa.</p>
+			</div>
+			<div class="about-card">
+				<div class="about-icon">📊</div>
+				<h3>Resultados medibles</h3>
+				<p>Nos enfocamos en métricas reales y resultados tangibles que demuestran el impacto de nuestro trabajo.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════ PROCESO ═══════════════ -->
+	<section id="proceso" class="section section-alt">
+		<p class="section-tag">NUESTRO PROCESO</p>
+		<h2 class="section-title">Cómo trabajamos</h2>
+		<p class="section-sub">Un proceso ágil y transparente para que tu proyecto sea un éxito desde el primer día.</p>
+
+		<div class="process-grid">
+			<div class="process-step">
+				<div class="step-number">1</div>
+				<h3>Análisis</h3>
+				<p>Escuchamos tus necesidades y analizamos tu situación para ofrecerte la mejor solución posible.</p>
+			</div>
+			<div class="process-step">
+				<div class="step-number">2</div>
+				<h3>Propuesta</h3>
+				<p>Te presentamos una propuesta clara, detallada y adaptada a tus objetivos y presupuesto.</p>
+			</div>
+			<div class="process-step">
+				<div class="step-number">3</div>
+				<h3>Desarrollo</h3>
+				<p>Desarrollamos e implementamos la solución, manteniéndote informado en cada paso del camino.</p>
+			</div>
+			<div class="process-step">
+				<div class="step-number">4</div>
+				<h3>Soporte</h3>
+				<p>Te acompañamos después de la entrega para asegurar el éxito y resolver cualquier duda.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════ CONTACTO ═══════════════ -->
+	<section id="contacto" class="section">
+		<p class="section-tag">CONTACTO</p>
+		<h2 class="section-title">¿Listo para impulsar tu negocio?</h2>
+		<p class="section-sub">Cuéntanos sobre tu proyecto y te responderemos lo antes posible.</p>
+
+		<div class="contact-grid">
+			<div class="contact-info">
+				<div class="contact-item">
+					<div class="contact-icon">📧</div>
+					<div>
+						<h4>Email</h4>
+						<a href="mailto:contacto@aljesolutions.com">contacto@aljesolutions.com</a>
+					</div>
+				</div>
+				<div class="contact-item">
+					<div class="contact-icon">📍</div>
+					<div>
+						<h4>Ubicación</h4>
+						<span>España</span>
+					</div>
 				</div>
 			</div>
-		</section>
 
-		<!-- PROCESO -->
-		<section id="proceso">
-			<h2>Nuestro Proceso</h2>
-			<div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
-				<div style="flex: 1 1 220px; min-width: 220px; max-width: 300px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(10,25,47,0.04); padding: 1.5rem 1rem; margin-bottom: 1rem;">
-					<h3 style="color: #0fa882;">1. Análisis</h3>
-					<p>Escuchamos tus necesidades y analizamos tu situación actual para ofrecerte la mejor solución.</p>
-				</div>
-				<div style="flex: 1 1 220px; min-width: 220px; max-width: 300px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(10,25,47,0.04); padding: 1.5rem 1rem; margin-bottom: 1rem;">
-					<h3 style="color: #0fa882;">2. Propuesta</h3>
-					<p>Te presentamos una propuesta clara, detallada y adaptada a tus objetivos.</p>
-				</div>
-				<div style="flex: 1 1 220px; min-width: 220px; max-width: 300px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(10,25,47,0.04); padding: 1.5rem 1rem; margin-bottom: 1rem;">
-					<h3 style="color: #0fa882;">3. Desarrollo</h3>
-					<p>Desarrollamos e implementamos la solución, manteniéndote informado en cada paso.</p>
-				</div>
-				<div style="flex: 1 1 220px; min-width: 220px; max-width: 300px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(10,25,47,0.04); padding: 1.5rem 1rem; margin-bottom: 1rem;">
-					<h3 style="color: #0fa882;">4. Soporte</h3>
-					<p>Te acompañamos después de la entrega para asegurar el éxito y resolver cualquier duda.</p>
-				</div>
-			</div>
-		</section>
+			<form class="contact-form" action="https://formsubmit.co/contacto@aljesolutions.com" method="POST">
+				<input type="hidden" name="_subject" value="Nuevo mensaje desde la web de ALJE Solutions">
+				<input type="hidden" name="_captcha" value="true">
+				<input type="hidden" name="_template" value="table">
+				<input type="text" name="_honey" style="display:none">
 
-		<!-- CONTACTO -->
-		<section id="contacto">
-			<h2>Contacto</h2>
-			<p>¿Quieres saber más? Escríbenos a <a href="mailto:contacto@aljesolutions.com" style="color: #0fa882; font-weight: 600;">contacto@aljesolutions.com</a></p>
-		</section>
-	</main>
+				<div class="form-row">
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						<input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+					</div>
+					<div class="form-group">
+						<label for="email">Correo electrónico</label>
+						<input type="email" id="email" name="email" required placeholder="tu@email.com" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="asunto">Asunto</label>
+					<input type="text" id="asunto" name="asunto" placeholder="¿En qué podemos ayudarte?" />
+				</div>
+				<div class="form-group">
+					<label for="mensaje">Mensaje</label>
+					<textarea id="mensaje" name="mensaje" rows="5" required placeholder="Describe tu proyecto o consulta..."></textarea>
+				</div>
+				<button type="submit" class="btn-primary btn-submit">Enviar mensaje</button>
+			</form>
+		</div>
+	</section>
+
 </Layout>
+
+<style>
+/* ═══════════ GENERAL ═══════════ */
+.section {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 6rem 2rem;
+}
+.section-alt {
+	background: #f5f7fa;
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+.section-alt > * {
+	max-width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+.section-tag {
+	color: #0fa882;
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 0.8rem;
+}
+.section-title {
+	color: #0a192f;
+	font-size: 2.4rem;
+	font-weight: 800;
+	text-align: center;
+	margin-bottom: 0.8rem;
+	letter-spacing: 0.5px;
+}
+.section-sub {
+	color: #555;
+	font-size: 1.1rem;
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto 3.5rem;
+	line-height: 1.7;
+}
+.accent { color: #0fa882; }
+
+/* ═══════════ HERO ═══════════ */
+.hero {
+	position: relative;
+	min-height: 90vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	padding: 2rem;
+}
+.hero-bg {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(ellipse at 20% 50%, rgba(15,168,130,0.06) 0%, transparent 60%),
+		radial-gradient(ellipse at 80% 20%, rgba(15,168,130,0.04) 0%, transparent 50%);
+}
+.hero-content {
+	position: relative;
+	text-align: center;
+	max-width: 720px;
+	animation: fadeUp 0.8s ease;
+}
+.hero-tag {
+	color: #0fa882;
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 3px;
+	margin-bottom: 1.2rem;
+}
+.hero h1 {
+	color: #0a192f;
+	font-size: 3.5rem;
+	font-weight: 900;
+	line-height: 1.15;
+	margin-bottom: 1.5rem;
+	letter-spacing: -0.5px;
+}
+.hero-sub {
+	color: #555;
+	font-size: 1.2rem;
+	line-height: 1.7;
+	margin-bottom: 2.5rem;
+	max-width: 540px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.hero-btns {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.btn-primary {
+	background: #0fa882;
+	color: #fff;
+	padding: 0.85rem 2rem;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 1rem;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 4px 20px rgba(15,168,130,0.15);
+}
+.btn-primary:hover {
+	background: #0a8a6a;
+	transform: translateY(-2px);
+	box-shadow: 0 6px 28px rgba(15,168,130,0.25);
+}
+.btn-secondary {
+	background: transparent;
+	color: #0fa882;
+	padding: 0.85rem 2rem;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 1rem;
+	text-decoration: none;
+	border: 2px solid #0fa882;
+	transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-secondary:hover {
+	background: rgba(15,168,130,0.1);
+	transform: translateY(-2px);
+}
+
+/* ═══════════ SERVICES ═══════════ */
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+}
+.service-card {
+	background: #ffffff;
+	border: 1px solid rgba(10,25,47,0.06);
+	border-radius: 12px;
+	padding: 2rem 1.5rem;
+	transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+	box-shadow: 0 2px 12px rgba(10,25,47,0.04);
+}
+.service-card:hover {
+	transform: translateY(-6px);
+	border-color: rgba(15,168,130,0.2);
+	box-shadow: 0 8px 30px rgba(10,25,47,0.08);
+}
+.service-icon {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+.service-card h3 {
+	color: #0a192f;
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin-bottom: 0.6rem;
+}
+.service-card > p {
+	color: #555;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+}
+.service-features {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.service-features li {
+	color: #555;
+	font-size: 0.88rem;
+	padding: 0.25rem 0;
+	padding-left: 1.3rem;
+	position: relative;
+}
+.service-features li::before {
+	content: '✓';
+	color: #0fa882;
+	font-weight: 700;
+	position: absolute;
+	left: 0;
+}
+
+/* ═══════════ PACKS ═══════════ */
+.packs-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+	align-items: stretch;
+}
+.pack-card {
+	background: #ffffff;
+	border: 1px solid rgba(10,25,47,0.08);
+	border-radius: 14px;
+	padding: 0;
+	overflow: hidden;
+	position: relative;
+	transition: transform 0.25s, box-shadow 0.25s;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 2px 12px rgba(10,25,47,0.04);
+}
+.pack-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 8px 30px rgba(10,25,47,0.1);
+}
+.pack-featured {
+	border-color: #0fa882;
+	box-shadow: 0 0 30px rgba(15,168,130,0.12);
+	transform: scale(1.03);
+}
+.pack-featured:hover {
+	transform: scale(1.03) translateY(-6px);
+}
+.pack-popular {
+	position: absolute;
+	top: 0.8rem;
+	right: 0.8rem;
+	background: #0fa882;
+	color: #fff;
+	font-size: 0.72rem;
+	font-weight: 800;
+	padding: 0.25rem 0.7rem;
+	border-radius: 20px;
+	letter-spacing: 0.5px;
+	z-index: 1;
+}
+.pack-header {
+	padding: 1.8rem 1.5rem 1rem;
+}
+.pack-name {
+	font-size: 1.5rem;
+	font-weight: 800;
+	color: #0a192f;
+}
+.esencial-bg { border-bottom: 3px solid #0fa882; }
+.profesional-bg { border-bottom: 3px solid #2563eb; }
+.premium-bg { border-bottom: 3px solid #7c3aed; }
+.pack-desc {
+	color: #555;
+	font-size: 0.93rem;
+	line-height: 1.6;
+	padding: 0 1.5rem;
+	margin-bottom: 1rem;
+}
+.pack-features {
+	list-style: none;
+	padding: 0 1.5rem;
+	margin: 0 0 1rem;
+	flex-grow: 1;
+}
+.pack-features li {
+	color: #333;
+	font-size: 0.9rem;
+	padding: 0.35rem 0;
+	padding-left: 1.4rem;
+	position: relative;
+}
+.pack-features li::before {
+	content: '✓';
+	font-weight: 700;
+	position: absolute;
+	left: 0;
+}
+.pack-card:nth-child(1) .pack-features li::before { color: #0fa882; }
+.pack-card:nth-child(2) .pack-features li::before { color: #2563eb; }
+.pack-card:nth-child(3) .pack-features li::before { color: #7c3aed; }
+.pack-ideal {
+	color: #777;
+	font-size: 0.85rem;
+	font-style: italic;
+	padding: 0 1.5rem;
+	margin-bottom: 1.5rem;
+	margin-top: auto;
+}
+.btn-pack {
+	display: block;
+	text-align: center;
+	margin: 0 1.5rem 1.8rem;
+	padding: 0.8rem;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 0.95rem;
+	text-decoration: none;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-pack:hover { transform: translateY(-2px); }
+.esencial-btn { background: #0fa882; color: #fff; }
+.profesional-btn { background: #2563eb; color: #fff; }
+.premium-btn { background: #7c3aed; color: #fff; }
+
+/* ═══════════ ABOUT ═══════════ */
+.about-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+}
+.about-card {
+	background: #ffffff;
+	border: 1px solid rgba(10,25,47,0.06);
+	border-radius: 12px;
+	padding: 2rem 1.5rem;
+	transition: transform 0.25s, border-color 0.25s;
+	box-shadow: 0 2px 12px rgba(10,25,47,0.04);
+}
+.about-card:hover {
+	transform: translateY(-4px);
+	border-color: rgba(15,168,130,0.2);
+}
+.about-icon {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+.about-card h3 {
+	color: #0a192f;
+	font-size: 1.15rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+.about-card p {
+	color: #555;
+	font-size: 0.95rem;
+	line-height: 1.65;
+}
+
+/* ═══════════ PROCESS ═══════════ */
+.process-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+}
+.process-step {
+	text-align: center;
+	padding: 1.5rem 1rem;
+}
+.step-number {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: rgba(15,168,130,0.1);
+	border: 2px solid #0fa882;
+	color: #0fa882;
+	font-size: 1.3rem;
+	font-weight: 800;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1.2rem;
+}
+.process-step h3 {
+	color: #0a192f;
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+.process-step p {
+	color: #555;
+	font-size: 0.93rem;
+	line-height: 1.6;
+}
+
+/* ═══════════ CONTACT ═══════════ */
+.contact-grid {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: 3rem;
+	align-items: start;
+}
+.contact-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+.contact-item {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+}
+.contact-icon {
+	font-size: 1.5rem;
+	margin-top: 0.1rem;
+}
+.contact-item h4 {
+	color: #0a192f;
+	font-size: 0.95rem;
+	font-weight: 700;
+	margin-bottom: 0.2rem;
+}
+.contact-item a, .contact-item span {
+	color: #555;
+	text-decoration: none;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+.contact-item a:hover {
+	color: #0fa882;
+}
+.contact-form {
+	background: #f9fafb;
+	border-radius: 14px;
+	padding: 2rem;
+	border: 1px solid rgba(10,25,47,0.06);
+	box-shadow: 0 2px 12px rgba(10,25,47,0.04);
+}
+.form-row {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+.form-group {
+	margin-bottom: 1.2rem;
+}
+.form-group label {
+	display: block;
+	color: #0a192f;
+	font-weight: 600;
+	font-size: 0.9rem;
+	margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group textarea {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	background: #ffffff;
+	border: 1.5px solid rgba(10,25,47,0.12);
+	border-radius: 8px;
+	color: #1a1a2e;
+	font-size: 0.95rem;
+	font-family: inherit;
+	transition: border-color 0.2s, box-shadow 0.2s;
+	box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+	outline: none;
+	border-color: #0fa882;
+	box-shadow: 0 0 0 3px rgba(15,168,130,0.1);
+}
+.form-group textarea {
+	resize: vertical;
+	min-height: 100px;
+}
+.btn-submit {
+	width: 100%;
+	font-family: inherit;
+}
+
+/* ═══════════ ANIMATIONS ═══════════ */
+@keyframes fadeUp {
+	from { opacity: 0; transform: translateY(30px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 900px) {
+	.hero h1 { font-size: 2.5rem; }
+	.section-title { font-size: 1.9rem; }
+	.packs-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+	.pack-featured { transform: scale(1); }
+	.pack-featured:hover { transform: translateY(-6px); }
+	.about-grid { grid-template-columns: 1fr; }
+	.process-grid { grid-template-columns: 1fr 1fr; }
+	.contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+	.hero h1 { font-size: 2rem; }
+	.hero { min-height: 80vh; padding: 1.5rem; }
+	.section { padding: 4rem 1.2rem; }
+	.section-title { font-size: 1.6rem; }
+	.services-grid { grid-template-columns: 1fr; }
+	.process-grid { grid-template-columns: 1fr; }
+	.form-row { grid-template-columns: 1fr; }
+}
+</style>
