@@ -1,6 +1,26 @@
 ---
 import Header from '../pages/header.astro';
 import Footer from '../pages/footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'ALJE Solutions — Desarrollo Web y Soluciones Digitales',
+  description = 'Agencia de desarrollo web y soluciones digitales a medida. Desarrollo web, consultoría IT y automatización para empresas en España.',
+  canonical = Astro.url.href,
+  ogImage = '/og-image.png',
+  noindex = false,
+} = Astro.props;
+
+const siteName = 'ALJE Solutions';
+const siteUrl = 'https://aljesolutions.com';
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
 
 <!DOCTYPE html>
@@ -8,12 +28,70 @@ import Footer from '../pages/footer.astro';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ALJE Solutions — Desarrollo Web y Soluciones Digitales</title>
-  <meta name="description" content="Agencia de desarrollo web y soluciones digitales a medida. Desarrollo web, consultoría IT y automatización en España." />
+
+  <!-- SEO Básico -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={fullOgImage} />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Tema y móvil -->
+  <meta name="theme-color" content="#0fa882" />
+  <meta name="author" content="ALJE Solutions" />
+
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org JSON-LD (Datos estructurados para Google) -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ALJE Solutions",
+    "url": siteUrl,
+    "logo": `${siteUrl}/favicon.svg`,
+    "image": fullOgImage,
+    "description": "Agencia de desarrollo web y soluciones digitales a medida. Desarrollo web, consultoría IT y automatización para empresas en España.",
+    "email": "contacto@aljesolutions.com",
+    "areaServed": {
+      "@type": "Country",
+      "name": "España"
+    },
+    "serviceType": [
+      "Desarrollo Web",
+      "Tiendas Online",
+      "Consultoría IT",
+      "Automatización"
+    ],
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ES"
+    },
+    "sameAs": []
+  })} />
 </head>
 <body>
 
@@ -61,5 +139,4 @@ import Footer from '../pages/footer.astro';
   @media (max-width: 800px) {
     main { padding: 0; }
   }
-</style>
 </style>
