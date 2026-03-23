@@ -21,6 +21,202 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
+	<!-- ═══════════════ SECTORES / SLIDER ═══════════════ -->
+	<section class="sectors">
+		<p class="section-tag">¿A QUIÉN AYUDAMOS?</p>
+		<h2 class="section-title">Soluciones digitales para todo tipo de negocios</h2>
+
+		<div class="slider-wrapper">
+			<button class="slider-arrow slider-arrow-left" id="sectorPrev" aria-label="Anterior">&#8249;</button>
+			<div class="slider-viewport">
+				<div class="slider-track" id="sectorSlider">
+				<div class="slider-slide">
+					<div class="slide-icon">🏪</div>
+					<h3>Comercios locales</h3>
+					<p>Tiendas, boutiques y negocios de barrio que quieren vender online y atraer más clientes.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">🍽️</div>
+					<h3>Restauración y hostelería</h3>
+					<p>Restaurantes, bares y cafeterías con carta digital, reservas online y presencia profesional.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">⚕️</div>
+					<h3>Clínicas y salud</h3>
+					<p>Clínicas dentales, fisioterapeutas y centros de salud con sistema de citas y visibilidad online.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">🏋️</div>
+					<h3>Gimnasios y deporte</h3>
+					<p>Centros deportivos y entrenadores personales con reservas de clases y gestión de socios.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">🏠</div>
+					<h3>Inmobiliarias</h3>
+					<p>Agencias y portales de propiedades con catálogo de inmuebles, filtros y formularios de contacto.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">💼</div>
+					<h3>Consultorías y asesorías</h3>
+					<p>Despachos profesionales que necesitan proyectar confianza y captar clientes online.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">🎓</div>
+					<h3>Educación y formación</h3>
+					<p>Academias, centros de formación y profesores con plataformas de cursos y matriculación.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">✂️</div>
+					<h3>Peluquerías y estética</h3>
+					<p>Salones de belleza y centros de estética con citas online y catálogo de servicios.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">🚗</div>
+					<h3>Talleres y automoción</h3>
+					<p>Talleres mecánicos y concesionarios con gestión de citas, presupuestos y catálogo de vehículos.</p>
+				</div>
+				<div class="slider-slide">
+					<div class="slide-icon">🛍️</div>
+					<h3>E-commerce y startups</h3>
+					<p>Nuevos proyectos digitales y tiendas online que necesitan despegar con fuerza desde el primer día.</p>
+				</div>
+				</div>
+			</div>
+			<button class="slider-arrow slider-arrow-right" id="sectorNext" aria-label="Siguiente">&#8250;</button>
+		</div>
+
+		<div class="slider-counter" id="sliderCounter">1 / 10</div>
+	</section>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			/* ——— Función genérica para crear un slider tipo libro ——— */
+			function createBookSlider(config) {
+				const track = document.getElementById(config.trackId);
+				const prevBtn = document.getElementById(config.prevId);
+				const nextBtn = document.getElementById(config.nextId);
+				const counterEl = config.counterId ? document.getElementById(config.counterId) : null;
+				if (!track || !prevBtn || !nextBtn) return;
+
+				const slides = track.querySelectorAll(config.slideSelector);
+				const total = slides.length;
+				let current = 0;
+				let timer = null;
+
+				function getPerView() {
+					if (!config.perView) return 1;
+					const w = window.innerWidth;
+					if (w <= 600) return config.perView.mobile || 1;
+					if (w <= 900) return config.perView.tablet || 2;
+					return config.perView.desktop || 3;
+				}
+
+				function getMaxPage() {
+					return Math.max(0, total - getPerView());
+				}
+
+				function goTo(i) {
+					const max = getMaxPage();
+					if (i > max) i = 0;
+					if (i < 0) i = max;
+					current = i;
+					const pv = getPerView();
+					const shift = (100 / pv) * current;
+					track.style.transform = 'translateX(-' + shift + '%)';
+					if (counterEl) {
+						const currentPage = Math.floor(current / pv) + 1;
+						const totalPages = Math.ceil(total / pv);
+						counterEl.textContent = currentPage + ' / ' + totalPages;
+					}
+				}
+
+				function step() {
+					const pv = getPerView();
+					goTo(current + pv);
+				}
+
+				function stepBack() {
+					const pv = getPerView();
+					goTo(current - pv);
+				}
+
+				function startAuto() {
+					stopAuto();
+					if (config.autoplay) {
+						timer = setInterval(function() { step(); }, config.autoplay);
+					}
+				}
+
+				function stopAuto() {
+					if (timer) { clearInterval(timer); timer = null; }
+				}
+
+				prevBtn.addEventListener('click', function() { stepBack(); stopAuto(); startAuto(); });
+				nextBtn.addEventListener('click', function() { step(); stopAuto(); startAuto(); });
+
+				// Swipe táctil
+				let startX = 0;
+				track.addEventListener('touchstart', function(e) {
+					startX = e.changedTouches[0].screenX; stopAuto();
+				}, { passive: true });
+				track.addEventListener('touchend', function(e) {
+					const diff = startX - e.changedTouches[0].screenX;
+					if (Math.abs(diff) > 50) {
+						if (diff > 0) step(); else stepBack();
+					}
+					startAuto();
+				}, { passive: true });
+
+				// Pausar al hacer hover
+				const wrapper = track.closest('.slider-wrapper') || track.parentElement;
+				if (wrapper) {
+					wrapper.addEventListener('mouseenter', stopAuto);
+					wrapper.addEventListener('mouseleave', startAuto);
+				}
+
+				// Ajustar slide widths para multi-view
+				function applyWidths() {
+					const pv = getPerView();
+					slides.forEach(function(s) {
+						s.style.minWidth = (100 / pv) + '%';
+					});
+					if (current > getMaxPage()) current = getMaxPage();
+					goTo(current);
+				}
+
+				let resizeT;
+				window.addEventListener('resize', function() {
+					clearTimeout(resizeT);
+					resizeT = setTimeout(applyWidths, 150);
+				});
+
+				// Init
+				applyWidths();
+				startAuto();
+			}
+
+			/* ——— Slider de Sectores (1 por página) ——— */
+			createBookSlider({
+				trackId: 'sectorSlider',
+				prevId: 'sectorPrev',
+				nextId: 'sectorNext',
+				counterId: 'sliderCounter',
+				slideSelector: '.slider-slide',
+				autoplay: 5000
+			});
+
+			/* ——— Slider de Portfolio (1 por página) ——— */
+			createBookSlider({
+				trackId: 'portfolioSlider',
+				prevId: 'portfolioPrev',
+				nextId: 'portfolioNext',
+				counterId: 'portfolioCounter',
+				slideSelector: '.portfolio-slide',
+				autoplay: 6000
+			});
+		});
+	</script>
+
 	<!-- ═══════════════ SERVICIOS ═══════════════ -->
 	<section id="servicios" class="section">
 		<p class="section-tag">NUESTROS SERVICIOS</p>
@@ -189,8 +385,80 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
+	<!-- ═══════════════ NUESTROS TRABAJOS ═══════════════ -->
+	<section id="trabajos" class="section">
+		<p class="section-tag">PORTFOLIO</p>
+		<h2 class="section-title">Nuestros Trabajos</h2>
+		<p class="section-sub">Algunos de los proyectos en los que hemos trabajado.</p>
+
+		<div class="slider-wrapper portfolio-wrapper">
+			<button class="slider-arrow slider-arrow-left" id="portfolioPrev" aria-label="Anterior">&#8249;</button>
+			<div class="slider-viewport">
+				<div class="slider-track" id="portfolioSlider">
+					<div class="portfolio-slide">
+						<div class="portfolio-card">
+							<div class="portfolio-placeholder"><span>🖥️</span></div>
+							<div class="portfolio-info">
+								<h3>Proyecto Web Corporativa</h3>
+								<p>Diseño y desarrollo de página web para empresa del sector servicios.</p>
+							</div>
+						</div>
+					</div>
+					<div class="portfolio-slide">
+						<div class="portfolio-card">
+							<div class="portfolio-placeholder"><span>🛒</span></div>
+							<div class="portfolio-info">
+								<h3>Tienda Online</h3>
+								<p>E-commerce completo con pasarela de pago y gestión de inventario.</p>
+							</div>
+						</div>
+					</div>
+					<div class="portfolio-slide">
+						<div class="portfolio-card">
+							<div class="portfolio-placeholder"><span>📱</span></div>
+							<div class="portfolio-info">
+								<h3>Aplicación Móvil</h3>
+								<p>Aplicación multiplataforma para gestión de reservas y citas.</p>
+							</div>
+						</div>
+					</div>
+					<div class="portfolio-slide">
+						<div class="portfolio-card">
+							<div class="portfolio-placeholder"><span>⚙️</span></div>
+							<div class="portfolio-info">
+								<h3>Sistema de Gestión</h3>
+								<p>Panel de administración personalizado para control de procesos internos.</p>
+							</div>
+						</div>
+					</div>
+					<div class="portfolio-slide">
+						<div class="portfolio-card">
+							<div class="portfolio-placeholder"><span>🌐</span></div>
+							<div class="portfolio-info">
+								<h3>Portal Inmobiliario</h3>
+								<p>Plataforma web con buscador avanzado y fichas de propiedades.</p>
+							</div>
+						</div>
+					</div>
+					<div class="portfolio-slide">
+						<div class="portfolio-card">
+							<div class="portfolio-placeholder"><span>📊</span></div>
+							<div class="portfolio-info">
+								<h3>Dashboard Analytics</h3>
+								<p>Panel de datos en tiempo real con gráficos interactivos y reportes.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="slider-arrow slider-arrow-right" id="portfolioNext" aria-label="Siguiente">&#8250;</button>
+		</div>
+
+		<div class="slider-counter" id="portfolioCounter">1 / 6</div>
+	</section>
+
 	<!-- ═══════════════ CONTACTO ═══════════════ -->
-	<section id="contacto" class="section">
+	<section id="contacto" class="section section-alt">
 		<p class="section-tag">CONTACTO</p>
 		<h2 class="section-title">¿Listo para impulsar tu negocio?</h2>
 		<p class="section-sub">Cuéntanos sobre tu proyecto y te responderemos lo antes posible.</p>
@@ -201,7 +469,7 @@ import Layout from '../layouts/Layout.astro';
 					<div class="contact-icon">📧</div>
 					<div>
 						<h4>Email</h4>
-						<a href="mailto:contacto@aljesolutions.com">contacto@aljesolutions.com</a>
+						<a href="mailto:aljesolutions@gmail.com">aljesolutions@gmail.com</a>
 					</div>
 				</div>
 				<div class="contact-item">
@@ -213,7 +481,7 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 
-			<form class="contact-form" action="https://formsubmit.co/contacto@aljesolutions.com" method="POST">
+			<form class="contact-form" action="https://formsubmit.co/aljesolutions@gmail.com" method="POST">
 				<input type="hidden" name="_subject" value="Nuevo mensaje desde la web de ALJE Solutions">
 				<input type="hidden" name="_captcha" value="true">
 				<input type="hidden" name="_template" value="table">
@@ -250,12 +518,34 @@ import Layout from '../layouts/Layout.astro';
 	max-width: 1100px;
 	margin: 0 auto;
 	padding: 6rem 2rem;
+	position: relative;
+}
+.section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
+	background:
+		radial-gradient(ellipse at 15% 30%, rgba(15,168,130,0.05) 0%, transparent 55%),
+		radial-gradient(ellipse at 85% 70%, rgba(15,168,130,0.04) 0%, transparent 50%);
+	pointer-events: none;
+	z-index: 0;
+}
+.section > * {
+	position: relative;
+	z-index: 1;
 }
 .section-alt {
 	background: #f5f7fa;
 	max-width: 100%;
 	padding-left: 0;
 	padding-right: 0;
+}
+.section-alt::before {
+	display: none;
 }
 .section-alt > * {
 	max-width: 1100px;
@@ -290,6 +580,135 @@ import Layout from '../layouts/Layout.astro';
 	line-height: 1.7;
 }
 .accent { color: #0fa882; }
+
+/* ═══════════ SECTORS SLIDER ═══════════ */
+.sectors {
+	background: #f5f7fa;
+	padding: 5rem 0 4rem;
+	overflow: hidden;
+}
+.sectors .section-tag,
+.sectors .section-title {
+	padding: 0 2rem;
+}
+.sectors .section-title {
+	margin-bottom: 3rem;
+}
+
+/* ——— Shared slider (used by sectors + portfolio) ——— */
+.slider-wrapper {
+	position: relative;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 3rem;
+}
+.slider-viewport {
+	overflow: hidden;
+	border-radius: 16px;
+}
+.slider-track {
+	display: flex;
+	transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+}
+.slider-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 5;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	border: none;
+	background: rgba(255,255,255,0.95);
+	box-shadow: 0 2px 12px rgba(10,25,47,0.12);
+	color: #0a192f;
+	font-size: 1.6rem;
+	font-weight: 300;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+	line-height: 1;
+	padding: 0;
+}
+.slider-arrow:hover {
+	background: #0fa882;
+	color: #fff;
+	transform: translateY(-50%) scale(1.08);
+	box-shadow: 0 4px 16px rgba(15,168,130,0.3);
+}
+.slider-arrow-left {
+	left: -8px;
+}
+.slider-arrow-right {
+	right: -8px;
+}
+.slider-counter {
+	display: none;
+}
+
+/* ——— Sector slides ——— */
+.slider-slide {
+	min-width: 100%;
+	box-sizing: border-box;
+	flex-shrink: 0;
+}
+.slider-slide > .slide-icon {
+	font-size: 3rem;
+	background: #fff;
+	padding: 2.5rem 2rem 0;
+	border-radius: 16px 16px 0 0;
+	margin: 0;
+	text-align: center;
+}
+.slider-slide h3 {
+	color: #0a192f;
+	font-size: 1.4rem;
+	font-weight: 800;
+	background: #fff;
+	padding: 1rem 2rem 0.4rem;
+	margin: 0;
+	text-align: center;
+}
+.slider-slide p {
+	color: #555;
+	font-size: 1.05rem;
+	line-height: 1.7;
+	background: #fff;
+	padding: 0 2rem 2.5rem;
+	border-radius: 0 0 16px 16px;
+	margin: 0;
+	text-align: center;
+}
+
+@media (max-width: 600px) {
+	.sectors {
+		padding: 4rem 0 3rem;
+	}
+	.slider-wrapper {
+		padding: 0 2.5rem;
+	}
+	.slider-arrow {
+		width: 34px;
+		height: 34px;
+		font-size: 1.2rem;
+	}
+	.slider-arrow-left { left: -2px; }
+	.slider-arrow-right { right: -2px; }
+	.slider-slide > .slide-icon {
+		font-size: 2.5rem;
+		padding: 2rem 1.5rem 0;
+	}
+	.slider-slide h3 {
+		font-size: 1.2rem;
+		padding: 0.8rem 1.5rem 0.3rem;
+	}
+	.slider-slide p {
+		font-size: 0.95rem;
+		padding: 0 1.5rem 2rem;
+	}
+}
 
 /* ═══════════ HERO ═══════════ */
 .hero {
@@ -609,6 +1028,73 @@ import Layout from '../layouts/Layout.astro';
 	color: #555;
 	font-size: 0.93rem;
 	line-height: 1.6;
+}
+
+/* ═══════════ PORTFOLIO ═══════════ */
+.portfolio-wrapper {
+	max-width: 800px;
+}
+.portfolio-slide {
+	min-width: 100%;
+	box-sizing: border-box;
+	flex-shrink: 0;
+}
+.portfolio-card {
+	background: #fff;
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 2px 16px rgba(10,25,47,0.06);
+	transition: box-shadow 0.3s;
+}
+.portfolio-card:hover {
+	box-shadow: 0 8px 28px rgba(10,25,47,0.10);
+}
+.portfolio-placeholder {
+	width: 100%;
+	height: 240px;
+	background: linear-gradient(135deg, #e8f5f0, #d4edda);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.portfolio-placeholder span {
+	font-size: 4rem;
+	opacity: 0.6;
+}
+.portfolio-info {
+	padding: 1.8rem 2rem;
+}
+.portfolio-info h3 {
+	color: #0a192f;
+	font-size: 1.25rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+.portfolio-info p {
+	color: #555;
+	font-size: 1rem;
+	line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+	.portfolio-wrapper {
+		max-width: 95%;
+	}
+	.portfolio-placeholder {
+		height: 180px;
+	}
+	.portfolio-placeholder span {
+		font-size: 3rem;
+	}
+	.portfolio-info {
+		padding: 1.3rem 1.5rem;
+	}
+	.portfolio-info h3 {
+		font-size: 1.1rem;
+	}
+	.portfolio-info p {
+		font-size: 0.9rem;
+	}
 }
 
 /* ═══════════ CONTACT ═══════════ */

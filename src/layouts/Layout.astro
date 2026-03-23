@@ -53,8 +53,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <meta name="twitter:image" content={fullOgImage} />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- Tema y móvil -->
   <meta name="theme-color" content="#0fa882" />
@@ -74,7 +74,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     "logo": `${siteUrl}/favicon.svg`,
     "image": fullOgImage,
     "description": "Agencia de desarrollo web y soluciones digitales a medida. Desarrollo web, consultoría IT y automatización para empresas en España.",
-    "email": "contacto@aljesolutions.com",
+    "email": "aljesolutions@gmail.com",
     "areaServed": {
       "@type": "Country",
       "name": "España"
@@ -130,6 +130,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     background: var(--bg);
     color: var(--text);
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   main {
     min-height: 70vh;
