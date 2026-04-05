@@ -513,12 +513,12 @@ import Layout from '../layouts/Layout.astro';
 	margin-bottom: 3rem;
 }
 
-/* ——— Shared slider (used by sectors + portfolio) ——— */
+/* ——— Shared slider (used by sectors) ——— */
 .slider-wrapper {
 	position: relative;
-	max-width: 800px;
+	max-width: 700px;
 	margin: 0 auto;
-	padding: 0 3rem;
+	padding: 0 3.5rem;
 }
 .slider-viewport {
 	overflow: hidden;
@@ -533,14 +533,14 @@ import Layout from '../layouts/Layout.astro';
 	top: 50%;
 	transform: translateY(-50%);
 	z-index: 5;
-	width: 44px;
-	height: 44px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	border: none;
 	background: rgba(255,255,255,0.95);
 	box-shadow: 0 2px 12px rgba(10,25,47,0.12);
 	color: #0a192f;
-	font-size: 1.6rem;
+	font-size: 1.5rem;
 	font-weight: 300;
 	cursor: pointer;
 	display: flex;
@@ -557,10 +557,10 @@ import Layout from '../layouts/Layout.astro';
 	box-shadow: 0 4px 16px rgba(15,168,130,0.3);
 }
 .slider-arrow-left {
-	left: -8px;
+	left: 0;
 }
 .slider-arrow-right {
-	right: -8px;
+	right: 0;
 }
 .slider-counter {
 	display: none;
@@ -602,29 +602,32 @@ import Layout from '../layouts/Layout.astro';
 
 @media (max-width: 600px) {
 	.sectors {
-		padding: 4rem 0 3rem;
+		padding: 3.5rem 0 2.5rem;
+	}
+	.sectors .section-title {
+		font-size: 1.5rem;
+		margin-bottom: 2rem;
 	}
 	.slider-wrapper {
-		padding: 0 2.5rem;
+		padding: 0 2.8rem;
 	}
 	.slider-arrow {
-		width: 34px;
-		height: 34px;
-		font-size: 1.2rem;
+		width: 32px;
+		height: 32px;
+		font-size: 1.1rem;
 	}
-	.slider-arrow-left { left: -2px; }
-	.slider-arrow-right { right: -2px; }
 	.slider-slide > .slide-icon {
-		font-size: 2.5rem;
-		padding: 2rem 1.5rem 0;
+		font-size: 2.2rem;
+		padding: 1.5rem 1.2rem 0;
 	}
 	.slider-slide h3 {
-		font-size: 1.2rem;
-		padding: 0.8rem 1.5rem 0.3rem;
+		font-size: 1.1rem;
+		padding: 0.6rem 1.2rem 0.3rem;
 	}
 	.slider-slide p {
-		font-size: 0.95rem;
-		padding: 0 1.5rem 2rem;
+		font-size: 0.88rem;
+		line-height: 1.6;
+		padding: 0 1.2rem 1.5rem;
 	}
 }
 
@@ -1098,8 +1101,5 @@ import Layout from '../layouts/Layout.astro';
 	.form-group input,
 	.form-group textarea { font-size: 0.9rem; padding: 0.7rem 0.9rem; }
 	.btn-submit { font-size: 0.95rem; padding: 0.8rem; }
-
-	.sectors { padding: 3.5rem 0 2.5rem; }
-	.sectors .section-title { font-size: 1.5rem; margin-bottom: 2rem; }
 }
 </style>
