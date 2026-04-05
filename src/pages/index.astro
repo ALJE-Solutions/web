@@ -1043,21 +1043,63 @@ import Layout from '../layouts/Layout.astro';
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 900px) {
 	.hero h1 { font-size: 2.5rem; }
+	.hero-sub { font-size: 1.1rem; }
 	.section-title { font-size: 1.9rem; }
+	.section-sub { font-size: 1rem; margin-bottom: 2.5rem; }
+	.services-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
 	.packs-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
 	.pack-featured { transform: scale(1); }
 	.pack-featured:hover { transform: translateY(-6px); }
-	.about-grid { grid-template-columns: 1fr; }
+	.about-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
 	.process-grid { grid-template-columns: 1fr 1fr; }
 	.contact-grid { grid-template-columns: 1fr; }
+	.contact-form { margin-top: 0.5rem; }
 }
 @media (max-width: 600px) {
-	.hero h1 { font-size: 2rem; }
-	.hero { min-height: 80vh; padding: 1.5rem; }
-	.section { padding: 4rem 1.2rem; }
-	.section-title { font-size: 1.6rem; }
-	.services-grid { grid-template-columns: 1fr; }
+	.section { padding: 3.5rem 1.2rem; }
+	.section-title { font-size: 1.5rem; }
+	.section-sub { font-size: 0.95rem; margin-bottom: 2rem; }
+	.section-tag { font-size: 0.78rem; letter-spacing: 2px; }
+
+	.hero { min-height: 75vh; padding: 1.5rem; }
+	.hero h1 { font-size: 1.75rem; line-height: 1.2; margin-bottom: 1rem; }
+	.hero-tag { font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
+	.hero-sub { font-size: 0.95rem; margin-bottom: 1.8rem; }
+	.hero-btns { flex-direction: column; align-items: center; gap: 0.8rem; }
+	.btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; padding: 0.8rem 1.5rem; font-size: 0.95rem; }
+
+	.service-card { padding: 1.5rem 1.2rem; }
+	.service-card h3 { font-size: 1.1rem; }
+	.service-card > p { font-size: 0.9rem; }
+	.service-features li { font-size: 0.85rem; }
+
+	.pack-header { padding: 1.5rem 1.2rem 0.8rem; }
+	.pack-name { font-size: 1.3rem; }
+	.pack-desc { font-size: 0.88rem; padding: 0 1.2rem; }
+	.pack-features { padding: 0 1.2rem; }
+	.pack-features li { font-size: 0.85rem; }
+	.pack-ideal { padding: 0 1.2rem; font-size: 0.82rem; }
+	.btn-pack { margin: 0 1.2rem 1.5rem; font-size: 0.9rem; }
+
+	.about-card { padding: 1.5rem 1.2rem; }
+	.about-card h3 { font-size: 1.05rem; }
+	.about-card p { font-size: 0.9rem; }
+
 	.process-grid { grid-template-columns: 1fr; }
+	.process-step { padding: 1rem 0.5rem; }
+	.process-step h3 { font-size: 1rem; }
+	.process-step p { font-size: 0.88rem; }
+	.step-number { width: 44px; height: 44px; font-size: 1.1rem; }
+
+	.contact-grid { gap: 1.5rem; }
+	.contact-form { padding: 1.5rem 1.2rem; }
 	.form-row { grid-template-columns: 1fr; }
+	.form-group label { font-size: 0.85rem; }
+	.form-group input,
+	.form-group textarea { font-size: 0.9rem; padding: 0.7rem 0.9rem; }
+	.btn-submit { font-size: 0.95rem; padding: 0.8rem; }
+
+	.sectors { padding: 3.5rem 0 2.5rem; }
+	.sectors .section-title { font-size: 1.5rem; margin-bottom: 2rem; }
 }
 </style>
