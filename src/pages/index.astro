@@ -1,23 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import flitlyImg from '../images/flitly.png';
+import hermandadImg from '../images/hermandad.png';
+import top541Img from '../images/541.png';
 ---
 
 <Layout
-  title="ALJE Solutions — Desarrollo Web y Soluciones Digitales a Medida"
-  description="Agencia de desarrollo web, consultoría IT y automatización para empresas en España. Creamos páginas web, tiendas online y soluciones digitales a medida para impulsar tu negocio."
+  title="ALJE Solutions — Desarrollo Web y Diseño Web Profesional en España"
+  description="ALJE Solutions: empresa de desarrollo web, diseño web a medida, tiendas online y consultoría IT en España. Más de 50 proyectos entregados. Pide tu presupuesto sin compromiso."
+  keywords="ALJE, ALJE Solutions, ALJE desarrollo web, ALJE diseño web, desarrollo web España, diseño web profesional, páginas web a medida, tiendas online, e-commerce, consultoría IT, automatización empresas, agencia web, crear página web, presupuesto web España, desarrollo web empresa"
 >
 
 	<!-- ═══════════════ HERO ═══════════════ -->
 	<section id="inicio" class="hero">
-		<div class="hero-bg"></div>
 		<div class="hero-content">
 			<p class="hero-tag">SOLUCIONES DIGITALES A MEDIDA</p>
 			<h1>Impulsamos tu negocio con <span class="accent">tecnología</span></h1>
 			<p class="hero-sub">Desarrollo web, consultoría IT y automatización para empresas que quieren crecer en el mundo digital.</p>
 			<div class="hero-btns">
 				<a href="#contacto" class="btn-primary">Solicitar presupuesto</a>
-				<a href="#servicios" class="btn-secondary">Nuestros servicios</a>
+				<a href="#servicios" class="btn-outline-light">Nuestros servicios</a>
 			</div>
+			
+		</div>
+		<div class="hero-wave">
+			<svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+			</svg>
 		</div>
 	</section>
 
@@ -170,7 +179,12 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- ═══════════════ NOSOTROS ═══════════════ -->
-	<section id="nosotros" class="section">
+	<div class="wave-divider wave-to-dark">
+		<svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill="#0a192f"/>
+		</svg>
+	</div>
+	<section id="nosotros" class="section dark-section">
 		<p class="section-tag">¿QUIÉNES SOMOS?</p>
 		<h2 class="section-title">Transformamos tu visión en realidad digital</h2>
 		<p class="section-sub">En ALJE Solutions combinamos creatividad, experiencia técnica y estrategia de negocio para crear soluciones digitales que impulsan el crecimiento de tu empresa.</p>
@@ -199,6 +213,11 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
+	<div class="wave-divider wave-from-dark">
+		<svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M0,35 C240,0 480,70 720,35 C960,0 1200,70 1440,35 L1440,0 L0,0 Z" fill="#0a192f"/>
+		</svg>
+	</div>
 	<!-- ═══════════════ PROCESO ═══════════════ -->
 	<section id="proceso" class="section section-alt">
 		<p class="section-tag">NUESTRO PROCESO</p>
@@ -226,6 +245,62 @@ import Layout from '../layouts/Layout.astro';
 				<h3>Soporte</h3>
 				<p>Te acompañamos después de la entrega para asegurar el éxito y resolver cualquier duda.</p>
 			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════ PORTFOLIO ═══════════════ -->
+	<section id="portfolio" class="section section-alt">
+		<p class="section-tag">NUESTROS TRABAJOS</p>
+		<h2 class="section-title">Proyectos que hablan por sí solos</h2>
+		<p class="section-sub">Cada web que entregamos es una solución pensada para el negocio del cliente. Aquí tienes algunos ejemplos.</p>
+
+		<div class="portfolio-grid">
+
+			<!-- PROYECTO 1 — 541 Top -->
+			<div class="portfolio-card">
+				<div class="portfolio-img">
+					<img src={top541Img.src} alt="541 Top" class="portfolio-screenshot" />
+					<div class="portfolio-overlay">
+						<a href="https://www.541top.com/" class="portfolio-btn" target="_blank" rel="noopener">Ver proyecto →</a>
+					</div>
+				</div>
+				<div class="portfolio-info">
+					<span class="portfolio-tag">Desarrollo Web</span>
+					<h3>541 Top</h3>
+					<p>Descripción breve del proyecto: qué hicimos, para quién y qué resultado obtuvimos.</p>
+				</div>
+			</div>
+
+			<!-- PROYECTO 2 — Hermandad Sacramental de Santa Ángela -->
+			<div class="portfolio-card">
+				<div class="portfolio-img">
+					<img src={hermandadImg.src} alt="Hermandad Sacramental de Santa Ángela" class="portfolio-screenshot" />
+					<div class="portfolio-overlay">
+						<a href="https://www.hermandaddesantaangela.com/" class="portfolio-btn" target="_blank" rel="noopener">Ver proyecto →</a>
+					</div>
+				</div>
+				<div class="portfolio-info">
+					<span class="portfolio-tag">Desarrollo Web</span>
+					<h3>Hermandad Sacramental de Santa Ángela</h3>
+					<p>Descripción breve del proyecto: qué hicimos, para quién y qué resultado obtuvimos.</p>
+				</div>
+			</div>
+
+			<!-- PROYECTO 3 — Flitly -->
+			<div class="portfolio-card">
+				<div class="portfolio-img">
+					<img src={flitlyImg.src} alt="Flitly" class="portfolio-screenshot" />
+					<div class="portfolio-overlay">
+						<a href="https://www.flitly.es/" class="portfolio-btn" target="_blank" rel="noopener">Ver proyecto →</a>
+					</div>
+				</div>
+				<div class="portfolio-info">
+					<span class="portfolio-tag">Desarrollo Web</span>
+					<h3>Flitly</h3>
+					<p>Descripción breve del proyecto: qué hicimos, para quién y qué resultado obtuvimos.</p>
+				</div>
+			</div>
+
 		</div>
 	</section>
 
@@ -462,42 +537,59 @@ import Layout from '../layouts/Layout.astro';
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	padding: 2rem;
+	padding: 6rem 2rem 10rem;
+	background: #0a192f;
+	background-image:
+		radial-gradient(ellipse at 15% 40%, rgba(15,168,130,0.18) 0%, transparent 55%),
+		radial-gradient(ellipse at 85% 70%, rgba(15,168,130,0.10) 0%, transparent 50%);
 }
-.hero-bg {
+.hero-wave {
 	position: absolute;
-	inset: 0;
-	background:
-		radial-gradient(ellipse at 20% 50%, rgba(15,168,130,0.06) 0%, transparent 60%),
-		radial-gradient(ellipse at 80% 20%, rgba(15,168,130,0.04) 0%, transparent 50%);
+	bottom: -1px;
+	left: 0;
+	width: 100%;
+	line-height: 0;
+	pointer-events: none;
+}
+.hero-wave svg {
+	display: block;
+	width: 100%;
+	height: 80px;
 }
 .hero-content {
 	position: relative;
 	text-align: center;
-	max-width: 720px;
+	max-width: 800px;
 	animation: fadeUp 0.8s ease;
+	z-index: 1;
 }
 .hero-tag {
 	color: #0fa882;
-	font-size: 0.85rem;
+	font-size: 0.82rem;
 	font-weight: 700;
-	letter-spacing: 3px;
-	margin-bottom: 1.2rem;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+	margin-bottom: 1.4rem;
+	display: inline-block;
+	background: rgba(15,168,130,0.12);
+	padding: 0.4rem 1.2rem;
+	border-radius: 30px;
+	border: 1px solid rgba(15,168,130,0.25);
 }
 .hero h1 {
-	color: #0a192f;
-	font-size: 3.5rem;
+	color: #ffffff;
+	font-size: 4rem;
 	font-weight: 900;
-	line-height: 1.15;
+	line-height: 1.1;
 	margin-bottom: 1.5rem;
-	letter-spacing: -0.5px;
+	letter-spacing: -1px;
 }
 .hero-sub {
-	color: #555;
+	color: rgba(255,255,255,0.70);
 	font-size: 1.2rem;
-	line-height: 1.7;
+	line-height: 1.75;
 	margin-bottom: 2.5rem;
-	max-width: 540px;
+	max-width: 560px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -506,11 +598,12 @@ import Layout from '../layouts/Layout.astro';
 	gap: 1rem;
 	justify-content: center;
 	flex-wrap: wrap;
+	margin-bottom: 3.5rem;
 }
 .btn-primary {
 	background: #0fa882;
 	color: #fff;
-	padding: 0.85rem 2rem;
+	padding: 0.9rem 2.2rem;
 	border-radius: 8px;
 	font-weight: 700;
 	font-size: 1rem;
@@ -518,27 +611,125 @@ import Layout from '../layouts/Layout.astro';
 	border: none;
 	cursor: pointer;
 	transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-	box-shadow: 0 4px 20px rgba(15,168,130,0.15);
+	box-shadow: 0 4px 20px rgba(15,168,130,0.30);
 }
 .btn-primary:hover {
 	background: #0a8a6a;
 	transform: translateY(-2px);
-	box-shadow: 0 6px 28px rgba(15,168,130,0.25);
+	box-shadow: 0 8px 32px rgba(15,168,130,0.40);
 }
-.btn-secondary {
+.btn-outline-light {
 	background: transparent;
-	color: #0fa882;
-	padding: 0.85rem 2rem;
+	color: rgba(255,255,255,0.88);
+	padding: 0.9rem 2.2rem;
 	border-radius: 8px;
 	font-weight: 700;
 	font-size: 1rem;
 	text-decoration: none;
-	border: 2px solid #0fa882;
-	transition: background 0.2s, color 0.2s, transform 0.2s;
+	border: 2px solid rgba(255,255,255,0.28);
+	transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
-.btn-secondary:hover {
-	background: rgba(15,168,130,0.1);
+.btn-outline-light:hover {
+	background: rgba(255,255,255,0.08);
+	border-color: rgba(255,255,255,0.55);
 	transform: translateY(-2px);
+}
+/* Hero stats bar */
+.hero-stats {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
+	background: rgba(255,255,255,0.05);
+	border: 1px solid rgba(255,255,255,0.10);
+	border-radius: 14px;
+	padding: 1.2rem 2rem;
+	max-width: 560px;
+	margin: 0 auto;
+	backdrop-filter: blur(8px);
+}
+.hero-stat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.2rem;
+	flex: 1;
+}
+.hero-stat strong {
+	color: #0fa882;
+	font-size: 1.6rem;
+	font-weight: 900;
+	line-height: 1;
+}
+.hero-stat span {
+	color: rgba(255,255,255,0.55);
+	font-size: 0.78rem;
+	text-align: center;
+}
+.hero-stat-sep {
+	width: 1px;
+	height: 36px;
+	background: rgba(255,255,255,0.12);
+	margin: 0 1rem;
+}
+
+/* ═══════════ DARK SECTION (Nosotros) ═══════════ */
+.dark-section {
+	background: #0a192f;
+	background-image:
+		radial-gradient(ellipse at 20% 30%, rgba(15,168,130,0.08) 0%, transparent 55%),
+		radial-gradient(ellipse at 80% 80%, rgba(15,168,130,0.06) 0%, transparent 50%);
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+.dark-section > * {
+	max-width: 1100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	position: relative;
+	z-index: 1;
+}
+.dark-section .section-tag { color: #0fa882; }
+.dark-section .section-title { color: #ffffff; }
+.dark-section .section-sub { color: rgba(255,255,255,0.60); }
+.dark-section .about-card {
+	background: rgba(255,255,255,0.05);
+	border-color: rgba(255,255,255,0.08);
+	box-shadow: none;
+}
+.dark-section .about-card:hover {
+	background: rgba(255,255,255,0.08);
+	border-color: rgba(15,168,130,0.35);
+}
+.dark-section .about-card h3 { color: #ffffff; }
+.dark-section .about-card p { color: rgba(255,255,255,0.60); }
+.dark-section .about-icon { filter: grayscale(0); }
+
+/* ═══════════ WAVE DIVIDERS ═══════════ */
+.wave-divider {
+	width: 100%;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+.wave-divider svg {
+	display: block;
+	width: 100%;
+	height: 70px;
+}
+.wave-to-dark {
+	background: #ffffff;
+}
+.wave-from-dark {
+	background: #0a192f;
+}
+/* Between section-alt and dark */
+.section-before-dark + .wave-divider.wave-to-dark {
+	background: #f5f7fa;
 }
 
 /* ═══════════ SERVICES ═══════════ */
@@ -549,20 +740,28 @@ import Layout from '../layouts/Layout.astro';
 }
 .service-card {
 	background: #ffffff;
-	border: 1px solid rgba(10,25,47,0.06);
+	border: 1px solid rgba(10,25,47,0.07);
+	border-top: 3px solid transparent;
 	border-radius: 12px;
-	padding: 2rem 1.5rem;
+	padding: 2rem 1.8rem;
 	transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-	box-shadow: 0 2px 12px rgba(10,25,47,0.04);
+	box-shadow: 0 2px 16px rgba(10,25,47,0.05);
 }
 .service-card:hover {
 	transform: translateY(-6px);
-	border-color: rgba(15,168,130,0.2);
-	box-shadow: 0 8px 30px rgba(10,25,47,0.08);
+	border-top-color: #0fa882;
+	box-shadow: 0 12px 40px rgba(10,25,47,0.10);
 }
 .service-icon {
-	font-size: 2rem;
-	margin-bottom: 1rem;
+	font-size: 2.2rem;
+	margin-bottom: 1.1rem;
+	display: inline-block;
+	background: rgba(15,168,130,0.09);
+	width: 56px;
+	height: 56px;
+	line-height: 56px;
+	text-align: center;
+	border-radius: 14px;
 }
 .service-card h3 {
 	color: #0a192f;
@@ -713,29 +912,41 @@ import Layout from '../layouts/Layout.astro';
 .about-card {
 	background: #ffffff;
 	border: 1px solid rgba(10,25,47,0.06);
-	border-radius: 12px;
-	padding: 2rem 1.5rem;
-	transition: transform 0.25s, border-color 0.25s;
-	box-shadow: 0 2px 12px rgba(10,25,47,0.04);
+	border-radius: 14px;
+	padding: 2rem 1.8rem;
+	transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+	box-shadow: 0 2px 14px rgba(10,25,47,0.04);
+	display: flex;
+	gap: 1.2rem;
+	align-items: flex-start;
 }
 .about-card:hover {
 	transform: translateY(-4px);
 	border-color: rgba(15,168,130,0.2);
+	box-shadow: 0 8px 30px rgba(10,25,47,0.08);
 }
 .about-icon {
-	font-size: 2rem;
-	margin-bottom: 1rem;
+	font-size: 1.8rem;
+	min-width: 52px;
+	height: 52px;
+	line-height: 52px;
+	text-align: center;
+	background: rgba(15,168,130,0.10);
+	border-radius: 12px;
+	display: inline-block;
 }
 .about-card h3 {
 	color: #0a192f;
-	font-size: 1.15rem;
+	font-size: 1.1rem;
 	font-weight: 700;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.4rem;
+	margin-top: 0.2rem;
 }
 .about-card p {
 	color: #555;
-	font-size: 0.95rem;
+	font-size: 0.93rem;
 	line-height: 1.65;
+	margin: 0;
 }
 
 /* ═══════════ PROCESS ═══════════ */
@@ -743,35 +954,163 @@ import Layout from '../layouts/Layout.astro';
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1.5rem;
+	position: relative;
+}
+.process-grid::before {
+	content: '';
+	position: absolute;
+	top: 25px;
+	left: calc(12.5% + 25px);
+	right: calc(12.5% + 25px);
+	height: 2px;
+	background: linear-gradient(to right, #0fa882 0%, rgba(15,168,130,0.2) 100%);
+	z-index: 0;
 }
 .process-step {
 	text-align: center;
 	padding: 1.5rem 1rem;
+	position: relative;
+	z-index: 1;
 }
 .step-number {
-	width: 50px;
-	height: 50px;
+	width: 52px;
+	height: 52px;
 	border-radius: 50%;
-	background: rgba(15,168,130,0.1);
-	border: 2px solid #0fa882;
-	color: #0fa882;
-	font-size: 1.3rem;
+	background: #0fa882;
+	color: #fff;
+	font-size: 1.2rem;
 	font-weight: 800;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto 1.2rem;
+	box-shadow: 0 4px 16px rgba(15,168,130,0.35);
 }
 .process-step h3 {
 	color: #0a192f;
-	font-size: 1.1rem;
+	font-size: 1.05rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
 }
 .process-step p {
 	color: #555;
-	font-size: 0.93rem;
+	font-size: 0.92rem;
 	line-height: 1.6;
+}
+
+/* ═══════════ PORTFOLIO ═══════════ */
+.portfolio-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.8rem;
+}
+.portfolio-card {
+	background: #fff;
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 4px 20px rgba(10,25,47,0.07);
+	transition: transform 0.3s, box-shadow 0.3s;
+	display: flex;
+	flex-direction: column;
+}
+.portfolio-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 16px 48px rgba(10,25,47,0.13);
+}
+.portfolio-img {
+	position: relative;
+	height: 220px;
+	overflow: hidden;
+	background: #e8edf2;
+}
+/* Imagen real de captura de pantalla */
+.portfolio-screenshot {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top center;
+	display: block;
+	transition: transform 0.5s ease;
+}
+.portfolio-card:hover .portfolio-screenshot {
+	transform: scale(1.04);
+}
+/* Placeholder de color para proyectos sin imagen */
+.portfolio-img-1 {
+	background: linear-gradient(135deg, #0a192f 0%, #0fa882 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.portfolio-placeholder-text {
+	color: rgba(255,255,255,0.40);
+	font-size: 1rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	user-select: none;
+	pointer-events: none;
+}
+.portfolio-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(10,25,47,0.60);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.35s;
+	z-index: 2;
+}
+.portfolio-card:hover .portfolio-overlay {
+	opacity: 1;
+}
+.portfolio-btn {
+	background: #0fa882;
+	color: #fff;
+	padding: 0.65rem 1.4rem;
+	border-radius: 8px;
+	font-weight: 700;
+	font-size: 0.9rem;
+	text-decoration: none;
+	box-shadow: 0 4px 16px rgba(15,168,130,0.35);
+	transition: background 0.2s, transform 0.2s;
+}
+.portfolio-btn:hover {
+	background: #0a8a6a;
+	transform: scale(1.04);
+}
+.portfolio-info {
+	padding: 1.4rem 1.6rem 1.8rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.portfolio-tag {
+	display: inline-block;
+	background: rgba(15,168,130,0.10);
+	color: #0fa882;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	padding: 0.25rem 0.8rem;
+	border-radius: 20px;
+	align-self: flex-start;
+}
+.portfolio-info h3 {
+	color: #0a192f;
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 0;
+}
+.portfolio-info p {
+	color: #666;
+	font-size: 0.92rem;
+	line-height: 1.6;
+	margin: 0;
 }
 
 /* ═══════════ CONTACT ═══════════ */
@@ -868,65 +1207,95 @@ import Layout from '../layouts/Layout.astro';
 
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 900px) {
-	.hero h1 { font-size: 2.5rem; }
+	.hero h1 { font-size: 2.6rem; }
 	.hero-sub { font-size: 1.1rem; }
+	.hero-stats { max-width: 100%; }
 	.section-title { font-size: 1.9rem; }
 	.section-sub { font-size: 1rem; margin-bottom: 2.5rem; }
-	.services-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
-	.packs-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+	.services-grid { grid-template-columns: 1fr 1fr; }
+	.packs-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
 	.pack-featured { transform: scale(1); }
 	.pack-featured:hover { transform: translateY(-6px); }
-	.about-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+	.about-grid { grid-template-columns: 1fr; }
+	.portfolio-grid { grid-template-columns: 1fr 1fr; }
 	.process-grid { grid-template-columns: 1fr 1fr; }
+	.process-grid::before { display: none; }
 	.contact-grid { grid-template-columns: 1fr; }
 	.contact-form { margin-top: 0.5rem; }
 }
 @media (max-width: 600px) {
-	.section { padding: 3.5rem 1.2rem; }
-	.section-title { font-size: 1.5rem; }
-	.section-sub { font-size: 0.95rem; margin-bottom: 2rem; }
-	.section-tag { font-size: 0.78rem; letter-spacing: 2px; }
+	.section { padding: 3rem 1.2rem; }
+	.section-alt > * { padding-left: 1.2rem; padding-right: 1.2rem; }
+	.dark-section > * { padding-left: 1.2rem; padding-right: 1.2rem; }
+	.section-title { font-size: 1.5rem; letter-spacing: 0; }
+	.section-sub { font-size: 0.95rem; margin-bottom: 1.8rem; }
+	.section-tag { font-size: 0.75rem; letter-spacing: 2px; }
 
-	.hero { min-height: 75vh; padding: 1.5rem; }
-	.hero h1 { font-size: 1.75rem; line-height: 1.2; margin-bottom: 1rem; }
-	.hero-tag { font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
+	/* Hero */
+	.hero { min-height: 100svh; padding: 6rem 1.2rem 8rem; }
+	.hero h1 { font-size: 1.9rem; line-height: 1.15; margin-bottom: 1rem; letter-spacing: -0.3px; }
+	.hero-tag { font-size: 0.68rem; letter-spacing: 2.5px; padding: 0.35rem 1rem; margin-bottom: 1.2rem; }
 	.hero-sub { font-size: 0.95rem; margin-bottom: 1.8rem; }
-	.hero-btns { flex-direction: column; align-items: center; gap: 0.8rem; }
-	.btn-primary, .btn-secondary { width: 100%; max-width: 280px; text-align: center; padding: 0.8rem 1.5rem; font-size: 0.95rem; }
+	.hero-btns { flex-direction: column; align-items: stretch; gap: 0.75rem; margin-bottom: 2.5rem; }
+	.btn-primary, .btn-outline-light { width: 100%; text-align: center; padding: 0.9rem 1.5rem; font-size: 1rem; }
+	.hero-stats { padding: 0.9rem 1.1rem; gap: 0; flex-wrap: nowrap; }
+	.hero-stat strong { font-size: 1.2rem; }
+	.hero-stat span { font-size: 0.66rem; }
+	.hero-stat-sep { height: 24px; margin: 0 0.5rem; }
+	.hero-wave svg { height: 50px; }
 
-	.service-card { padding: 1.5rem 1.2rem; }
-	.service-card h3 { font-size: 1.1rem; }
+	/* Grids a 1 columna */
+	.services-grid { grid-template-columns: 1fr; }
+	.portfolio-grid { grid-template-columns: 1fr; }
+	.process-grid { grid-template-columns: 1fr; }
+	.process-grid::before { display: none; }
+
+	/* Servicios */
+	.service-card { padding: 1.4rem 1.2rem; }
+	.service-icon { width: 48px; height: 48px; line-height: 48px; font-size: 1.8rem; }
+	.service-card h3 { font-size: 1.05rem; }
 	.service-card > p { font-size: 0.9rem; }
 	.service-features li { font-size: 0.85rem; }
 
-	.process-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
-
-	.form-row { grid-template-columns: 1fr; }
-
-	.pack-header { padding: 1.5rem 1.2rem 0.8rem; }
-	.pack-name { font-size: 1.3rem; }
+	/* Packs */
+	.packs-grid { max-width: 100%; }
+	.pack-header { padding: 1.4rem 1.2rem 0.8rem; }
+	.pack-name { font-size: 1.25rem; }
 	.pack-desc { font-size: 0.88rem; padding: 0 1.2rem; }
 	.pack-features { padding: 0 1.2rem; }
 	.pack-features li { font-size: 0.85rem; }
 	.pack-ideal { padding: 0 1.2rem; font-size: 0.82rem; }
 	.btn-pack { margin: 0 1.2rem 1.5rem; font-size: 0.9rem; }
 
-	.about-card { padding: 1.5rem 1.2rem; }
-	.about-card h3 { font-size: 1.05rem; }
-	.about-card p { font-size: 0.9rem; }
+	/* Nosotros */
+	.about-card { padding: 1.3rem 1.1rem; flex-direction: row; gap: 1rem; align-items: flex-start; }
+	.about-icon { min-width: 44px; height: 44px; line-height: 44px; font-size: 1.5rem; border-radius: 10px; }
+	.about-card h3 { font-size: 1rem; margin-top: 0; }
+	.about-card p { font-size: 0.88rem; }
 
-	.process-grid { grid-template-columns: 1fr; }
-	.process-step { padding: 1rem 0.5rem; }
+	/* Proceso */
+	.process-step { padding: 0.8rem 0; }
 	.process-step h3 { font-size: 1rem; }
 	.process-step p { font-size: 0.88rem; }
-	.step-number { width: 44px; height: 44px; font-size: 1.1rem; }
+	.step-number { width: 44px; height: 44px; font-size: 1rem; margin-bottom: 0.9rem; }
 
-	.contact-grid { gap: 1.5rem; }
-	.contact-form { padding: 1.5rem 1.2rem; }
+	/* Portfolio */
+	.portfolio-img { height: 190px; }
+	.portfolio-info { padding: 1.1rem 1.2rem 1.4rem; }
+	.portfolio-info h3 { font-size: 1rem; }
+	.portfolio-info p { font-size: 0.88rem; }
+
+	/* Contacto */
+	.contact-grid { gap: 1.2rem; }
+	.contact-form { padding: 1.4rem 1.1rem; }
 	.form-row { grid-template-columns: 1fr; }
+	.form-group { margin-bottom: 1rem; }
 	.form-group label { font-size: 0.85rem; }
 	.form-group input,
-	.form-group textarea { font-size: 0.9rem; padding: 0.7rem 0.9rem; }
-	.btn-submit { font-size: 0.95rem; padding: 0.8rem; }
+	.form-group textarea { font-size: 0.95rem; padding: 0.75rem 0.9rem; }
+	.btn-submit { font-size: 1rem; padding: 0.85rem; }
+
+	/* Ondas */
+	.wave-divider svg { height: 40px; }
 }
 </style>

@@ -5,14 +5,16 @@ import Footer from '../pages/footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
 }
 
 const {
-  title = 'ALJE Solutions — Desarrollo Web y Soluciones Digitales',
-  description = 'Agencia de desarrollo web y soluciones digitales a medida. Desarrollo web, consultoría IT y automatización para empresas en España.',
+  title = 'ALJE Solutions — Desarrollo Web Profesional | Diseño Web a Medida',
+  description = 'ALJE Solutions: agencia de desarrollo web, diseño web y soluciones digitales a medida para empresas en España. Creamos páginas web, tiendas online y automatizaciones. Contacta con ALJE hoy.',
+  keywords = 'ALJE, ALJE Solutions, desarrollo web, diseño web, páginas web profesionales, tiendas online, consultoría IT, automatización, soluciones digitales, agencia web España, crear página web empresa, diseño web a medida, desarrollo web España',
   canonical = Astro.url.href,
   ogImage = '/og-image.png',
   noindex = false,
@@ -35,6 +37,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <!-- SEO Básico -->
   <title>{title}</title>
   <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
   <link rel="canonical" href={canonical} />
   {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
 
@@ -70,32 +73,50 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <!-- Schema.org JSON-LD (Datos estructurados para Google) -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "ALJE Solutions",
-    "url": siteUrl,
-    "logo": `${siteUrl}/favicon.svg`,
-    "image": fullOgImage,
-    "description": "Agencia de desarrollo web y soluciones digitales a medida. Desarrollo web, consultoría IT y automatización para empresas en España.",
-    "email": "aljesolutions@gmail.com",
-    "areaServed": {
-      "@type": "Country",
-      "name": "España"
+  <script type="application/ld+json" set:html={JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ALJE Solutions",
+      "alternateName": "ALJE",
+      "url": siteUrl,
+      "description": "Agencia de desarrollo web y soluciones digitales a medida para empresas en España.",
+      "inLanguage": "es-ES"
     },
-    "serviceType": [
-      "Desarrollo Web",
-      "Tiendas Online",
-      "Consultoría IT",
-      "Automatización"
-    ],
-    "priceRange": "€€",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "ES"
-    },
-    "sameAs": []
-  })} />
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "ALJE Solutions",
+      "alternateName": ["ALJE", "ALJE Desarrollo Web", "ALJE Soluciones Digitales"],
+      "url": siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/logo_sinfondo.png`
+      },
+      "image": fullOgImage,
+      "description": "ALJE Solutions es una agencia especializada en desarrollo web, diseño web a medida, tiendas online, consultoría IT y automatización de procesos para empresas en España.",
+      "email": "aljesolutions@gmail.com",
+      "areaServed": [
+        { "@type": "Country", "name": "España" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios ALJE Solutions",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo Web a Medida", "description": "Creación de páginas web profesionales y aplicaciones web personalizadas." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tiendas Online", "description": "Diseño y desarrollo de tiendas online y e-commerce optimizados para vender." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría IT", "description": "Asesoramiento tecnológico y consultoría IT para empresas que quieren crecer digitalmente." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización de Procesos", "description": "Automatización de tareas y flujos de trabajo para aumentar la productividad empresarial." } }
+        ]
+      },
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ES"
+      },
+      "sameAs": []
+    }
+  ])} />
 </head>
 <body>
 
@@ -106,6 +127,48 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 </main>
 
 <Footer />
+
+<!-- ═══════════ COOKIE BANNER ═══════════ -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Aviso de cookies" aria-live="polite">
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <p>
+        Usamos cookies propias y de terceros para analizar el tráfico y mejorar tu experiencia. 
+        Puedes aceptarlas todas o gestionar tus preferencias. 
+        <a href="/privacidad">Más información</a>.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button id="cookie-reject" class="cookie-btn cookie-btn-outline">Rechazar</button>
+      <button id="cookie-accept" class="cookie-btn cookie-btn-primary">Aceptar todas</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const COOKIE_KEY = 'alje_cookie_consent';
+  const banner = document.getElementById('cookie-banner');
+
+  function hideBanner() {
+    banner?.classList.add('cookie-banner--hidden');
+  }
+
+  // Show only if no decision yet
+  if (!localStorage.getItem(COOKIE_KEY)) {
+    // Small delay so it slides in after page load
+    setTimeout(() => banner?.classList.add('cookie-banner--visible'), 600);
+  }
+
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    localStorage.setItem(COOKIE_KEY, 'accepted');
+    hideBanner();
+  });
+
+  document.getElementById('cookie-reject')?.addEventListener('click', () => {
+    localStorage.setItem(COOKIE_KEY, 'rejected');
+    hideBanner();
+  });
+</script>
 
 </body>
 </html>
@@ -141,7 +204,101 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     margin: 0 auto;
     padding: 0;
   }
+  /* Pages that aren't index.astro need top padding for fixed header */
+  main:not(:has(.hero)) {
+    padding-top: 80px;
+  }
   @media (max-width: 800px) {
     main { padding: 0; }
+    main:not(:has(.hero)) { padding-top: 70px; }
+  }
+
+  /* ═══════════ COOKIE BANNER ═══════════ */
+  .cookie-banner {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(calc(100% + 2rem));
+    z-index: 9999;
+    width: calc(100% - 3rem);
+    max-width: 760px;
+    background: #0a192f;
+    border: 1px solid rgba(15,168,130,0.20);
+    border-radius: 14px;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.28);
+    opacity: 0;
+    transition: transform 0.45s cubic-bezier(.4,0,.2,1), opacity 0.45s ease;
+    pointer-events: none;
+  }
+  .cookie-banner--visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .cookie-banner--hidden {
+    transform: translateX(-50%) translateY(calc(100% + 2rem));
+    opacity: 0;
+    pointer-events: none;
+  }
+  .cookie-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 1.6rem;
+    flex-wrap: wrap;
+  }
+  .cookie-text {
+    flex: 1;
+    min-width: 200px;
+  }
+  .cookie-text p {
+    color: rgba(255,255,255,0.78);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  }
+  .cookie-text a {
+    color: #0fa882;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .cookie-text a:hover { text-decoration: underline; }
+  .cookie-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .cookie-btn:hover { transform: translateY(-1px); }
+  .cookie-btn-primary {
+    background: #0fa882;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(15,168,130,0.30);
+  }
+  .cookie-btn-primary:hover { background: #0a8a6a; }
+  .cookie-btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.70);
+    border: 1px solid rgba(255,255,255,0.20);
+  }
+  .cookie-btn-outline:hover {
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+  }
+  @media (max-width: 520px) {
+    .cookie-inner { flex-direction: column; gap: 1rem; }
+    .cookie-actions { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
   }
 </style>
