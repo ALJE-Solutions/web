@@ -13,8 +13,8 @@
 .header.scrolled {
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(14px);
-  box-shadow: 0 2px 24px rgba(10,25,47,0.08);
-  border-bottom: 1px solid rgba(10,25,47,0.06);
+  box-shadow: 0 2px 24px rgba(28,28,46,0.08);
+  border-bottom: 1px solid rgba(28,28,46,0.06);
 }
 .header-inner {
   max-width: 1200px;
@@ -56,7 +56,7 @@
   transition: color 0.35s;
 }
 .header.scrolled .nav-brand span {
-  color: #0a192f;
+  color: #1c1c2e;
 }
 .nav-links {
   display: flex;
@@ -86,25 +86,25 @@
   color: #333;
 }
 .nav-links a:focus {
-  box-shadow: 0 0 0 2px #0fa882;
+  box-shadow: 0 0 0 2px #5B6BF5;
 }
 .nav-links a::after {
   content: '';
   display: block;
   width: 0;
   height: 2px;
-  background: #0fa882;
+  background: #5B6BF5;
   transition: width 0.25s;
   margin: 2px auto 0;
 }
 .nav-links a:hover {
-  color: #0fa882;
+  color: #5B6BF5;
 }
 .nav-links a:hover::after {
   width: 100%;
 }
 .nav-cta {
-  background: #0fa882;
+  background: #5B6BF5;
   color: #fff !important;
   padding: 0.55rem 1.3rem !important;
   border-radius: 8px;
@@ -112,7 +112,7 @@
   transition: background 0.2s, transform 0.2s;
 }
 .nav-cta:hover {
-  background: #0a8a6a;
+  background: #4452d8;
   color: #fff !important;
   transform: translateY(-1px);
 }
@@ -139,7 +139,7 @@
 }
 .header.scrolled .menu-toggle {
   background: #f0faf6;
-  border-color: rgba(15,168,130,0.18);
+  border-color: rgba(91,107,245,0.18);
 }
 .menu-toggle span {
   display: block;
@@ -152,7 +152,7 @@
   transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
 }
 .header.scrolled .menu-toggle span {
-  background: #0fa882;
+  background: #5B6BF5;
 }
 /* Animación hamburguesa → X */
 .menu-toggle.is-open span:nth-child(1) {
@@ -208,7 +208,7 @@
     right: -100%;          /* oculto completamente fuera de pantalla */
     bottom: 0;
     width: min(280px, 85vw);
-    background: #0a192f;
+    background: #1c1c2e;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -236,7 +236,7 @@
   .nav-cta {
     margin-top: 1.2rem;
     text-align: center;
-    background: #0fa882 !important;
+    background: #5B6BF5 !important;
     border-radius: 8px !important;
     padding: 0.7rem 1rem !important;
     border-bottom: none !important;
@@ -288,8 +288,8 @@
 <header class="header">
   <div class="header-inner">
     <div class="nav-brand">
-      <img src="/logo_sinfondo.png" alt="Logo ALJE Solutions" />
-      <span>ALJE Solutions</span>
+      <img src="/logo_andcode.png" alt="Logo AnD Code" />
+      <span>AnD Code</span>
     </div>
     <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
       <span></span>

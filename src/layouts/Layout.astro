@@ -12,15 +12,15 @@ interface Props {
 }
 
 const {
-  title = 'ALJE Solutions — Desarrollo Web Profesional | Diseño Web a Medida',
-  description = 'ALJE Solutions: agencia de desarrollo web, diseño web y soluciones digitales a medida para empresas en España. Creamos páginas web, tiendas online y automatizaciones. Contacta con ALJE hoy.',
-  keywords = 'ALJE, ALJE Solutions, desarrollo web, diseño web, páginas web profesionales, tiendas online, consultoría IT, automatización, soluciones digitales, agencia web España, crear página web empresa, diseño web a medida, desarrollo web España',
+  title = 'AnD Code — Desarrollo Web Profesional | Diseño Web a Medida',
+  description = 'AnD Code: agencia de desarrollo web, diseño web y soluciones digitales a medida para empresas en España. Creamos páginas web, tiendas online y automatizaciones. Contacta con AnD Code hoy.',
+  keywords = 'AnD Code, desarrollo web, diseño web, páginas web profesionales, tiendas online, consultoría IT, automatización, soluciones digitales, agencia web España, crear página web empresa, diseño web a medida, desarrollo web España',
   canonical = Astro.url.href,
   ogImage = '/og-image.png',
   noindex = false,
 } = Astro.props;
 
-const siteName = 'ALJE Solutions';
+const siteName = 'AnD Code';
 const siteUrl = 'https://aljesolutions.com';
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
@@ -64,8 +64,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
   <!-- Tema y móvil -->
-  <meta name="theme-color" content="#0fa882" />
-  <meta name="author" content="ALJE Solutions" />
+  <meta name="theme-color" content="#5B6BF5" />
+  <meta name="author" content="AnD Code" />
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,8 +77,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "ALJE Solutions",
-      "alternateName": "ALJE",
+      "name": "AnD Code",
+      "alternateName": "AnD Code",
       "url": siteUrl,
       "description": "Agencia de desarrollo web y soluciones digitales a medida para empresas en España.",
       "inLanguage": "es-ES"
@@ -86,22 +86,22 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "ALJE Solutions",
-      "alternateName": ["ALJE", "ALJE Desarrollo Web", "ALJE Soluciones Digitales"],
+      "name": "AnD Code",
+      "alternateName": ["AnD Code", "AnD Code Desarrollo Web", "AnD Code Soluciones Digitales"],
       "url": siteUrl,
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/logo_sinfondo.png`
+        "url": `${siteUrl}/logo_andcode.png`
       },
       "image": fullOgImage,
-      "description": "ALJE Solutions es una agencia especializada en desarrollo web, diseño web a medida, tiendas online, consultoría IT y automatización de procesos para empresas en España.",
+      "description": "AnD Code es una agencia especializada en desarrollo web, diseño web a medida, tiendas online, consultoría IT y automatización de procesos para empresas en España.",
       "email": "aljesolutions@gmail.com",
       "areaServed": [
         { "@type": "Country", "name": "España" }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Servicios ALJE Solutions",
+        "name": "Servicios AnD Code",
         "itemListElement": [
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo Web a Medida", "description": "Creación de páginas web profesionales y aplicaciones web personalizadas." } },
           { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tiendas Online", "description": "Diseño y desarrollo de tiendas online y e-commerce optimizados para vender." } },
@@ -175,17 +175,17 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 
 <style>
   :root {
-    --primary: #0a192f;
-    --accent: #0fa882;
-    --accent-dark: #0a8a6a;
-    --accent-glow: rgba(15,168,130,0.10);
+    --primary: #1c1c2e;
+    --accent: #5B6BF5;
+    --accent-dark: #4452d8;
+    --accent-glow: rgba(91,107,245,0.10);
     --text: #1a1a2e;
     --text-secondary: #555;
     --bg: #ffffff;
     --bg-alt: #f5f7fa;
     --bg-card: #ffffff;
     --radius: 16px;
-    --shadow: 0 4px 24px rgba(10,25,47,0.06);
+    --shadow: 0 4px 24px rgba(28,28,46,0.06);
     --transition: 0.3s cubic-bezier(.4,0,.2,1);
   }
   html, body {
@@ -222,8 +222,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     z-index: 9999;
     width: calc(100% - 3rem);
     max-width: 760px;
-    background: #0a192f;
-    border: 1px solid rgba(15,168,130,0.20);
+    background: #1c1c2e;
+    border: 1px solid rgba(91,107,245,0.20);
     border-radius: 14px;
     box-shadow: 0 8px 48px rgba(0,0,0,0.28);
     opacity: 0;
@@ -259,7 +259,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   }
   .cookie-text a {
-    color: #0fa882;
+    color: #5B6BF5;
     text-decoration: none;
     font-weight: 600;
   }
@@ -282,11 +282,11 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   }
   .cookie-btn:hover { transform: translateY(-1px); }
   .cookie-btn-primary {
-    background: #0fa882;
+    background: #5B6BF5;
     color: #fff;
-    box-shadow: 0 4px 14px rgba(15,168,130,0.30);
+    box-shadow: 0 4px 14px rgba(91,107,245,0.30);
   }
-  .cookie-btn-primary:hover { background: #0a8a6a; }
+  .cookie-btn-primary:hover { background: #4452d8; }
   .cookie-btn-outline {
     background: transparent;
     color: rgba(255,255,255,0.70);
