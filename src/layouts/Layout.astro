@@ -14,7 +14,8 @@ interface Props {
 const {
   title = 'AnD Code — Desarrollo Web Profesional | Diseño Web a Medida',
   description = 'AnD Code: agencia de desarrollo web, diseño web y soluciones digitales a medida para empresas en España. Creamos páginas web, tiendas online y automatizaciones.',
-  keywords = 'AnD Code, desarrollo web, diseño web, páginas web profesionales, tiendas online, consultoría IT, automatización, soluciones digitales, agencia web España, crear página web empresa, diseño web a medida, desarrollo web España',
+  keywords = 'AnD Code, desarrollo web, diseño web España, diseño web profesional, páginas web a medida, páginas web para empresas, web para pymes, agencia web España, crear página web, presupuesto web, tienda online, e-commerce, consultoría IT, automatización empresas, soluciones digitales, desarrollo web empresa, web corporativa, landing page, web para autónomos, precio página web, agencia digital España, desarrollo web Sanlúcar, desarrollo web Cádiz, desarrollo web Andalucía',
+
   canonical = Astro.url.href,
   ogImage = '/og-image.png',
   noindex = false,
@@ -22,6 +23,7 @@ const {
 
 const siteName = 'AnD Code';
 const siteUrl = 'https://andcode.es';
+const siteUrlAlt = 'https://aljesolutions.com';
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 ---
 
@@ -67,6 +69,12 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="jU47XMCPAaOxm9TemanVmPOXy9xbSnd4AEsyccrT6Zw" />
+
+  <!-- SEO Geolocalización (España) -->
+  <meta name="geo.region" content="ES" />
+  <meta name="geo.placename" content="España" />
+  <meta name="language" content="Spanish" />
+  <meta name="revisit-after" content="7 days" />
 
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
