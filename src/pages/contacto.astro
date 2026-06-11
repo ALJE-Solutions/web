@@ -2,9 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
+<Layout
+  title="Contacto — Solicita Presupuesto Web Gratis | ALJE Solutions"
+  description="¿Necesitas una página web para tu empresa o pyme? Contáctanos y recibe un presupuesto gratuito sin compromiso. Respondemos en menos de 24 horas."
+  keywords="contacto ALJE Solutions, presupuesto web gratis, solicitar página web, contratar desarrollo web, agencia web contacto, precio página web pyme"
+  canonical="https://aljesolutions.com/contacto"
+>
 	<section class="contacto-hero">
-		<h1>Contacto</h1>
+		<h1>Solicita tu Presupuesto Web Gratuito</h1>
 		<p class="subtitulo">¿Tienes un proyecto en mente? Cuéntanos y te responderemos lo antes posible.</p>
 	</section>
 
@@ -250,6 +255,32 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.contacto-hero h1 {
 		font-size: 2rem;
+	}
+}
+@media (max-width: 480px) {
+	.contacto-hero {
+		padding: 2.5rem 1rem 1.5rem;
+	}
+	.contacto-hero h1 {
+		font-size: 1.6rem;
+		letter-spacing: 1px;
+	}
+	.subtitulo {
+		font-size: 1rem;
+	}
+	.contacto-contenido {
+		padding: 0 1rem;
+	}
+	.contacto-form {
+		padding: 1.2rem 1rem;
+	}
+	.btn-enviar {
+		font-size: 1rem;
+		padding: 0.8rem 1.5rem;
+	}
+	.exito-contenido {
+		padding: 2rem 1.5rem;
+		margin: 1rem;
 	}
 }
 

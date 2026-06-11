@@ -2,9 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
+<Layout
+  title="Packs y Precios de Página Web para Pymes — ALJE Solutions"
+  description="Descubre nuestros packs de desarrollo web para pymes, autónomos y emprendedores. Soluciones digitales con precio cerrado, sin sorpresas. Incluye asesoría y soporte."
+  keywords="precios web pymes, pack página web, web barata profesional, ALJE Solutions packs, página web autónomos, web emprendedores, presupuesto web, pack digital España"
+  canonical="https://aljesolutions.com/packs"
+>
 <section class="packs-hero">
-	<h1>Packs y Promociones</h1>
+	<h1>Packs Web para Pymes y Emprendedores</h1>
 	<p>Elige el pack que mejor se adapte a tus necesidades y lleva tu negocio al siguiente nivel. Todos nuestros packs incluyen asesoría personalizada y soporte premium.</p>
 	<div class="packs-list">
 		<div class="pack">
@@ -100,5 +105,34 @@ import Layout from '../layouts/Layout.astro';
 @keyframes fadeIn {
 	from { opacity: 0; transform: translateY(40px); }
 	to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 768px) {
+	.packs-hero {
+		padding: 2rem 1.5rem;
+		margin: 1.5rem 1rem;
+		max-width: 100%;
+	}
+	.packs-hero h1 {
+		font-size: 2rem;
+		letter-spacing: 1px;
+	}
+}
+@media (max-width: 480px) {
+	.packs-hero {
+		padding: 1.5rem 1.2rem;
+		margin: 1rem 0.8rem;
+		border-radius: 12px;
+	}
+	.packs-hero h1 {
+		font-size: 1.6rem;
+	}
+	.pack {
+		min-width: unset;
+		max-width: 100%;
+		flex: 1 1 100%;
+	}
+	.packs-list {
+		gap: 1.2rem;
+	}
 }
 </style>

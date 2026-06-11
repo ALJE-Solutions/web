@@ -2,9 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
+<Layout
+  title="Servicios de Desarrollo Web para Empresas y Pymes — ALJE Solutions"
+  description="Diseño y desarrollo web a medida, tiendas online, consultoría IT y automatización para empresas y pymes en España. Presupuesto gratuito sin compromiso."
+  keywords="desarrollo web empresas, página web pymes, diseño web profesional, tienda online, web a medida, ALJE Solutions servicios, consultoría IT, automatización digital, web para autónomos"
+  canonical="https://aljesolutions.com/servicios"
+>
 <section class="servicios-hero">
-	<h1>Desarrollo Web</h1>
+	<h1>Desarrollo Web Profesional para Empresas y Pymes</h1>
 	<p class="subtitulo">Soluciones digitales adaptadas a cada etapa de tu negocio.</p>
 
 	<div class="packs-grid">
@@ -265,6 +270,37 @@ import Layout from '../layouts/Layout.astro';
 	}
 	.servicios-hero h1 {
 		font-size: 2rem;
+	}
+}
+@media (max-width: 600px) {
+	.servicios-hero {
+		padding: 2rem 1.2rem 3rem;
+	}
+	.servicios-hero h1 {
+		font-size: 1.7rem;
+		letter-spacing: 1px;
+	}
+	.subtitulo {
+		font-size: 1rem;
+		margin-bottom: 2rem;
+	}
+	.packs-grid {
+		max-width: 100%;
+	}
+	.pack {
+		padding: 1.5rem 1.3rem 1.8rem;
+	}
+}
+@media (max-width: 480px) {
+	.servicios-hero h1 {
+		font-size: 1.45rem;
+	}
+	.pack {
+		padding: 1.3rem 1rem 1.5rem;
+	}
+	.pack-btn {
+		font-size: 0.95rem;
+		padding: 0.75rem 1.2rem;
 	}
 }
 

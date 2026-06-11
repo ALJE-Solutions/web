@@ -11,9 +11,9 @@ import Layout from '../layouts/Layout.astro';
 	<section id="inicio" class="hero">
 		<div class="hero-bg"></div>
 		<div class="hero-content">
-			<p class="hero-tag">SOLUCIONES DIGITALES A MEDIDA</p>
-			<h1>Impulsamos tu negocio con <span class="accent">tecnología</span></h1>
-			<p class="hero-sub">Desarrollo web, consultoría IT y automatización para empresas que quieren crecer en el mundo digital.</p>
+			<p class="hero-tag">SOLUCIONES DIGITALES A MEDIDA — ALJE SOLUTIONS</p>
+			<h1>Desarrollo Web para Empresas y Pymes en <span class="accent">España</span></h1>
+			<p class="hero-sub">Páginas web profesionales, tiendas online, consultoría IT y automatización para pymes y autónomos que quieren crecer en el mundo digital.</p>
 			<div class="hero-btns">
 				<a href="#contacto" class="btn-primary">Solicitar presupuesto</a>
 				<a href="#servicios" class="btn-secondary">Nuestros servicios</a>
@@ -91,17 +91,18 @@ import Layout from '../layouts/Layout.astro';
 	<script>
 		document.addEventListener('DOMContentLoaded', () => {
 			/* ——— Función genérica para crear un slider tipo libro ——— */
-			function createBookSlider(config) {
-				const track = document.getElementById(config.trackId);
+			function createBookSlider(config: { trackId: string; prevId: string; nextId: string; counterId?: string; slideSelector: string; perView?: { mobile?: number; tablet?: number; desktop?: number }; autoplay?: number }) {
+				const trackEl = document.getElementById(config.trackId);
 				const prevBtn = document.getElementById(config.prevId);
 				const nextBtn = document.getElementById(config.nextId);
 				const counterEl = config.counterId ? document.getElementById(config.counterId) : null;
-				if (!track || !prevBtn || !nextBtn) return;
+				if (!trackEl || !prevBtn || !nextBtn) return;
+				const track = trackEl as HTMLElement;
 
-				const slides = track.querySelectorAll(config.slideSelector);
+				const slides = track.querySelectorAll<HTMLElement>(config.slideSelector);
 				const total = slides.length;
 				let current = 0;
-				let timer = null;
+				let timer: ReturnType<typeof setInterval> | null = null;
 
 				function getPerView() {
 					if (!config.perView) return 1;
@@ -115,14 +116,14 @@ import Layout from '../layouts/Layout.astro';
 					return Math.max(0, total - getPerView());
 				}
 
-				function goTo(i) {
+				function goTo(i: number) {
 					const max = getMaxPage();
 					if (i > max) i = 0;
 					if (i < 0) i = max;
 					current = i;
 					const pv = getPerView();
 					const shift = (100 / pv) * current;
-					track.style.transform = 'translateX(-' + shift + '%)';
+					track!.style.transform = 'translateX(-' + shift + '%)';
 					if (counterEl) {
 						const currentPage = Math.floor(current / pv) + 1;
 						const totalPages = Math.ceil(total / pv);
@@ -184,7 +185,7 @@ import Layout from '../layouts/Layout.astro';
 					goTo(current);
 				}
 
-				let resizeT;
+				let resizeT: ReturnType<typeof setTimeout>;
 				window.addEventListener('resize', function() {
 					clearTimeout(resizeT);
 					resizeT = setTimeout(applyWidths, 150);
@@ -397,55 +398,34 @@ import Layout from '../layouts/Layout.astro';
 				<div class="slider-track" id="portfolioSlider">
 					<div class="portfolio-slide">
 						<div class="portfolio-card">
-							<div class="portfolio-placeholder"><span>🖥️</span></div>
+							<div class="portfolio-placeholder portfolio-hermandad"><span>⛪</span></div>
 							<div class="portfolio-info">
-								<h3>Proyecto Web Corporativa</h3>
-								<p>Diseño y desarrollo de página web para empresa del sector servicios.</p>
+								<span class="portfolio-tag">Web Institucional</span>
+								<h3>Hermandad de Santa Ángela</h3>
+								<p>Web cofrade para la Hermandad Sacramental de Santa Ángela de la Cruz en Sanlúcar de Barrameda. Noticias, cultos, titulares y vida hermandad.</p>
+								<a href="https://www.hermandaddesantaangela.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Ver proyecto →</a>
 							</div>
 						</div>
 					</div>
 					<div class="portfolio-slide">
 						<div class="portfolio-card">
-							<div class="portfolio-placeholder"><span>🛒</span></div>
+							<div class="portfolio-placeholder portfolio-flitly"><span>🚴</span></div>
 							<div class="portfolio-info">
-								<h3>Tienda Online</h3>
-								<p>E-commerce completo con pasarela de pago y gestión de inventario.</p>
+								<span class="portfolio-tag">Plataforma Digital</span>
+								<h3>Flitly</h3>
+								<p>Plataforma de alquiler de equipos deportivos y acuáticos. Conecta deportistas con propietarios: reservas instantáneas, pagos seguros y seguro incluido.</p>
+								<a href="https://www.flitly.es/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Ver proyecto →</a>
 							</div>
 						</div>
 					</div>
 					<div class="portfolio-slide">
 						<div class="portfolio-card">
-							<div class="portfolio-placeholder"><span>📱</span></div>
+							<div class="portfolio-placeholder portfolio-541top"><span>🏆</span></div>
 							<div class="portfolio-info">
-								<h3>Aplicación Móvil</h3>
-								<p>Aplicación multiplataforma para gestión de reservas y citas.</p>
-							</div>
-						</div>
-					</div>
-					<div class="portfolio-slide">
-						<div class="portfolio-card">
-							<div class="portfolio-placeholder"><span>⚙️</span></div>
-							<div class="portfolio-info">
-								<h3>Sistema de Gestión</h3>
-								<p>Panel de administración personalizado para control de procesos internos.</p>
-							</div>
-						</div>
-					</div>
-					<div class="portfolio-slide">
-						<div class="portfolio-card">
-							<div class="portfolio-placeholder"><span>🌐</span></div>
-							<div class="portfolio-info">
-								<h3>Portal Inmobiliario</h3>
-								<p>Plataforma web con buscador avanzado y fichas de propiedades.</p>
-							</div>
-						</div>
-					</div>
-					<div class="portfolio-slide">
-						<div class="portfolio-card">
-							<div class="portfolio-placeholder"><span>📊</span></div>
-							<div class="portfolio-info">
-								<h3>Dashboard Analytics</h3>
-								<p>Panel de datos en tiempo real con gráficos interactivos y reportes.</p>
+								<span class="portfolio-tag">Web Corporativa</span>
+								<h3>541 Top</h3>
+								<p>Diseño y desarrollo de presencia digital profesional. Solución web a medida adaptada a las necesidades específicas del cliente.</p>
+								<a href="https://www.541top.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link">Ver proyecto →</a>
 							</div>
 						</div>
 					</div>
@@ -454,7 +434,7 @@ import Layout from '../layouts/Layout.astro';
 			<button class="slider-arrow slider-arrow-right" id="portfolioNext" aria-label="Siguiente">&#8250;</button>
 		</div>
 
-		<div class="slider-counter" id="portfolioCounter">1 / 6</div>
+		<div class="slider-counter" id="portfolioCounter">1 / 3</div>
 	</section>
 
 	<!-- ═══════════════ CONTACTO ═══════════════ -->
@@ -1057,6 +1037,9 @@ import Layout from '../layouts/Layout.astro';
 	align-items: center;
 	justify-content: center;
 }
+.portfolio-hermandad { background: linear-gradient(135deg, #f5ede0, #e8d5b7); }
+.portfolio-flitly    { background: linear-gradient(135deg, #e0f0ff, #b8d8f8); }
+.portfolio-541top    { background: linear-gradient(135deg, #fff0e0, #fdd9a0); }
 .portfolio-placeholder span {
 	font-size: 4rem;
 	opacity: 0.6;
@@ -1075,6 +1058,28 @@ import Layout from '../layouts/Layout.astro';
 	font-size: 1rem;
 	line-height: 1.6;
 }
+.portfolio-tag {
+	display: inline-block;
+	background: var(--accent-glow);
+	color: var(--accent);
+	font-size: 0.78rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	padding: 0.25rem 0.75rem;
+	border-radius: 20px;
+	margin-bottom: 0.6rem;
+}
+.portfolio-link {
+	display: inline-block;
+	margin-top: 1rem;
+	color: var(--accent);
+	font-weight: 600;
+	font-size: 0.95rem;
+	text-decoration: none;
+	transition: gap 0.2s;
+}
+.portfolio-link:hover { text-decoration: underline; }
 
 @media (max-width: 600px) {
 	.portfolio-wrapper {
@@ -1193,20 +1198,46 @@ import Layout from '../layouts/Layout.astro';
 @media (max-width: 900px) {
 	.hero h1 { font-size: 2.5rem; }
 	.section-title { font-size: 1.9rem; }
-	.packs-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+	.packs-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
 	.pack-featured { transform: scale(1); }
 	.pack-featured:hover { transform: translateY(-6px); }
-	.about-grid { grid-template-columns: 1fr; }
+	.about-grid { grid-template-columns: repeat(2, 1fr); }
 	.process-grid { grid-template-columns: 1fr 1fr; }
 	.contact-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+	.hero h1 { font-size: 2.2rem; }
+	.section-title { font-size: 1.75rem; }
+	.hero-sub { font-size: 1.05rem; }
+	.section-sub { font-size: 1rem; }
+	.services-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
 	.hero h1 { font-size: 2rem; }
 	.hero { min-height: 80vh; padding: 1.5rem; }
+	.hero-sub { font-size: 1rem; max-width: 100%; }
 	.section { padding: 4rem 1.2rem; }
+	.section-alt > * { padding-left: 1.2rem; padding-right: 1.2rem; }
 	.section-title { font-size: 1.6rem; }
+	.section-sub { font-size: 0.95rem; margin-bottom: 2.5rem; }
 	.services-grid { grid-template-columns: 1fr; }
+	.about-grid { grid-template-columns: 1fr; }
 	.process-grid { grid-template-columns: 1fr; }
+	.packs-grid { max-width: 100%; }
 	.form-row { grid-template-columns: 1fr; }
+	.contact-form { padding: 1.5rem 1.2rem; }
+}
+@media (max-width: 480px) {
+	.hero h1 { font-size: 1.75rem; letter-spacing: -0.3px; }
+	.hero { min-height: 70vh; padding: 1.2rem; }
+	.hero-tag { letter-spacing: 1.5px; font-size: 0.78rem; }
+	.section { padding: 3rem 1rem; }
+	.section-title { font-size: 1.4rem; }
+	.section-sub { font-size: 0.9rem; }
+	.step-number { width: 42px; height: 42px; font-size: 1.1rem; }
+	.btn-primary, .btn-secondary { padding: 0.75rem 1.5rem; font-size: 0.95rem; }
+	.contact-form { padding: 1.2rem 1rem; }
+	.service-card { padding: 1.5rem 1.2rem; }
+	.about-card { padding: 1.5rem 1.2rem; }
 }
 </style>
