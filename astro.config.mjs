@@ -13,7 +13,9 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/header') &&
         !page.includes('/footer') &&
-        !page.includes('/contenido-principal'),
+        !page.includes('/contenido-principal') &&
+        !page.includes('/privacidad') &&
+        !page.includes('/terminos'),
     }),
   ],
 });

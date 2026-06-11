@@ -2,12 +2,13 @@
 ---
 <footer class="footer">
   <div class="footer-inner">
-    <div class="footer-col">
+    <div class="footer-col footer-col-brand">
       <div class="footer-brand">
-        <img src="/src/images/logo_sinfondo.png" alt="ALJE Solutions Logo" class="footer-logo" loading="lazy" />
-        <span>ALJE Solutions</span>
+        <img src="/logo_andcode.png" alt="AnD Code Logo" class="footer-logo" loading="lazy" />
+        <span>AnD Code</span>
       </div>
       <p class="footer-desc">Transformamos ideas en soluciones digitales. Desarrollo web, consultoría IT y automatización para impulsar tu negocio.</p>
+      <a href="mailto:andcodeinfo@gmail.com" class="footer-contact-btn">Solicitar presupuesto</a>
     </div>
     <div class="footer-col">
       <h4>Navegación</h4>
@@ -15,7 +16,7 @@
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
@@ -29,23 +30,26 @@
     <div class="footer-col">
       <h4>Contacto</h4>
       <ul>
-        <li><a href="mailto:aljesolutions@gmail.com">aljesolutions@gmail.com</a></li>
+        <li><a href="mailto:andcodeinfo@gmail.com">andcodeinfo@gmail.com</a></li>
         <li>España</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© {new Date().getFullYear()} ALJE Solutions. Todos los derechos reservados.</span>
+    <span>© {new Date().getFullYear()} AnD Code. Todos los derechos reservados.</span>
+    <span class="footer-bottom-links">
+      <a href="/privacidad">Privacidad</a>
+      <a href="/terminos">Términos</a>
+    </span>
   </div>
 
   <style>
     .footer {
-      background: #f5f7fa;
-      color: #555;
-      padding: 4rem 2rem 0;
+      background: #1c1c2e;
+      color: rgba(255,255,255,0.60);
+      padding: 5rem 2rem 0;
       margin-top: 0;
       font-size: 0.95rem;
-      border-top: 1px solid rgba(10,25,47,0.08);
     }
     .footer-inner {
       max-width: 1100px;
@@ -53,15 +57,16 @@
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1.2fr;
       gap: 3rem;
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .footer-col h4 {
-      color: #0a192f;
-      font-size: 0.9rem;
+      color: #ffffff;
+      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
     }
     .footer-col ul {
       list-style: none;
@@ -69,15 +74,16 @@
       margin: 0;
     }
     .footer-col li {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.7rem;
     }
     .footer-col a {
-      color: #555;
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       transition: color 0.2s;
+      font-size: 0.93rem;
     }
     .footer-col a:hover {
-      color: #0fa882;
+      color: #5B6BF5;
     }
     .footer-brand {
       display: flex;
@@ -88,38 +94,86 @@
     .footer-brand span {
       font-weight: 800;
       font-size: 1.3rem;
-      color: #0a192f;
+      color: #ffffff;
       letter-spacing: 1px;
     }
     .footer-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      height: 32px;
+      width: auto;
+      border-radius: 0;
       object-fit: contain;
+      filter: brightness(0) invert(1);
     }
     .footer-desc {
-      color: #555;
+      color: rgba(255,255,255,0.50);
       line-height: 1.7;
-      font-size: 0.93rem;
+      font-size: 0.92rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-contact-btn {
+      display: inline-block;
+      background: #5B6BF5;
+      color: #fff;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(91,107,245,0.30);
+    }
+    .footer-contact-btn:hover {
+      background: #4452d8;
+      transform: translateY(-1px);
     }
     .footer-bottom {
-      border-top: 1px solid rgba(10,25,47,0.08);
+      max-width: 1100px;
+      margin: 0 auto;
       text-align: center;
-      padding: 1.5rem 0;
-      font-size: 0.85rem;
-      color: #888;
+      padding: 1.8rem 0;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.28);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-bottom-links a {
+      color: rgba(255,255,255,0.28);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-bottom-links a:hover {
+      color: #5B6BF5;
     }
     @media (max-width: 768px) {
+      .footer { padding: 3.5rem 1.5rem 0; }
       .footer-inner {
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
       }
+      .footer-col-brand {
+        grid-column: 1 / -1;
+      }
     }
     @media (max-width: 480px) {
+      .footer { padding: 3rem 1.2rem 0; }
       .footer-inner {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.8rem;
       }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 1.4rem 0;
+      }
+      .footer-contact-btn { width: 100%; text-align: center; }
     }
   </style>
 </footer>

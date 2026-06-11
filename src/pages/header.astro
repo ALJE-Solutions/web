@@ -3,12 +3,18 @@
 <style>
 .header {
   width: 100%;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(10,25,47,0.06);
-  position: sticky;
+  background: transparent;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  z-index: 200;
+  transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.3s ease;
+}
+.header.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 2px 24px rgba(28,28,46,0.08);
+  border-bottom: 1px solid rgba(28,28,46,0.06);
 }
 .header-inner {
   max-width: 1200px;
@@ -16,7 +22,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.7rem 2.5rem;
+  padding: 1.2rem 2.5rem;
+  transition: padding 0.3s ease;
+}
+.header.scrolled .header-inner {
+  padding: 0.65rem 2.5rem;
 }
 .nav-brand {
   display: flex;
@@ -24,21 +34,29 @@
   gap: 0.8rem;
 }
 .nav-brand img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  height: 36px;
+  width: auto;
+  border-radius: 0;
   background: transparent;
-  object-fit: cover;
-  transition: transform 0.2s;
+  object-fit: contain;
+  transition: transform 0.2s, filter 0.3s;
+  filter: brightness(0) invert(1);
+}
+.header.scrolled .nav-brand img {
+  filter: none;
 }
 .nav-brand img:hover {
   transform: scale(1.08) rotate(-6deg);
 }
 .nav-brand span {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: 2px;
-  color: #0a192f;
+  color: #ffffff;
+  transition: color 0.35s;
+}
+.header.scrolled .nav-brand span {
+  color: #1c1c2e;
 }
 .nav-links {
   display: flex;
@@ -53,7 +71,7 @@
   align-items: center;
 }
 .nav-links a {
-  color: #333;
+  color: rgba(255,255,255,0.88);
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
@@ -64,26 +82,29 @@
   outline: none;
   transition: color 0.2s;
 }
+.header.scrolled .nav-links a {
+  color: #333;
+}
 .nav-links a:focus {
-  box-shadow: 0 0 0 2px #0fa882;
+  box-shadow: 0 0 0 2px #5B6BF5;
 }
 .nav-links a::after {
   content: '';
   display: block;
   width: 0;
   height: 2px;
-  background: #0fa882;
+  background: #5B6BF5;
   transition: width 0.25s;
   margin: 2px auto 0;
 }
 .nav-links a:hover {
-  color: #0fa882;
+  color: #5B6BF5;
 }
 .nav-links a:hover::after {
   width: 100%;
 }
 .nav-cta {
-  background: #0fa882;
+  background: #5B6BF5;
   color: #fff !important;
   padding: 0.55rem 1.3rem !important;
   border-radius: 8px;
@@ -91,94 +112,195 @@
   transition: background 0.2s, transform 0.2s;
 }
 .nav-cta:hover {
-  background: #0a8a6a;
+  background: #4452d8;
   color: #fff !important;
   transform: translateY(-1px);
 }
 .nav-cta::after {
   display: none !important;
 }
+
+/* ── Hamburger button ── */
 .menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 38px;
   height: 38px;
-  background: #f0faf6;
-  border: 1px solid rgba(15,168,130,0.15);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
   border-radius: 8px;
   cursor: pointer;
-  align-items: center;
-  margin-left: 1.2rem;
-  transition: background 0.2s;
+  /* z-index mayor que el drawer (z-index: 250) para que siempre quede encima */
+  position: relative;
+  z-index: 300;
+  transition: background 0.2s, border 0.2s;
+}
+.header.scrolled .menu-toggle {
+  background: #f0faf6;
+  border-color: rgba(91,107,245,0.18);
 }
 .menu-toggle span {
   display: block;
   width: 22px;
   height: 2px;
-  background: #0fa882;
+  background: #ffffff;
   margin: 3px 0;
   border-radius: 2px;
-  transition: all 0.3s;
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
 }
+.header.scrolled .menu-toggle span {
+  background: #5B6BF5;
+}
+/* Animación hamburguesa → X */
+.menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Backdrop ── */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 199;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 @media (max-width: 900px) {
-  .header-inner { padding: 0.7rem 1rem; }
+  .header-inner { padding: 1rem 1.5rem; }
+  .header.scrolled .header-inner { padding: 0.65rem 1.5rem; }
   .nav-links { gap: 1.2rem; }
 }
-@media (max-width: 700px) {
-  .nav-links {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 240px;
-    box-shadow: 0 8px 32px rgba(10,25,47,0.1);
-    border-radius: 0 0 0 16px;
-    border-left: 1px solid rgba(10,25,47,0.06);
-    padding: 1.5rem;
-    gap: 1rem;
-    display: none;
+
+@media (max-width: 768px) {
+  .nav-brand span {
+    font-size: 1.15rem;
+    letter-spacing: 1px;
   }
-  .nav-links.open {
-    display: flex;
+  .nav-brand img {
+    width: 32px;
+    height: 32px;
   }
   .menu-toggle {
     display: flex;
+  }
+  /* Drawer lateral */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;          /* oculto completamente fuera de pantalla */
+    bottom: 0;
+    width: min(280px, 85vw);
+    background: #1c1c2e;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 5rem 1.8rem 2rem;
+    box-shadow: -8px 0 40px rgba(0,0,0,0.35);
+    overflow-y: auto;
+    z-index: 250;           /* por debajo del botón (z-index:300) */
+    transition: right 0.35s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-links.open {
+    right: 0;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.85) !important;
+    font-size: 1.05rem;
+    padding: 0.9rem 0;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-links a::after { display: none; }
+  .nav-cta {
+    margin-top: 1.2rem;
+    text-align: center;
+    background: #5B6BF5 !important;
+    border-radius: 8px !important;
+    padding: 0.7rem 1rem !important;
+    border-bottom: none !important;
   }
 }
 </style>
 
 <script>
-  let menuOpen = false;
-  function toggleMenu() {
-    menuOpen = !menuOpen;
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks) {
-      if (menuOpen) navLinks.classList.add('open');
-      else navLinks.classList.remove('open');
-    }
+  const header   = document.querySelector('.header');
+  const backdrop = document.getElementById('nav-backdrop');
+  const menuBtn  = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  /* Scroll: transparente → blanco */
+  function onScroll() {
+    header?.classList.toggle('scrolled', window.scrollY > 50);
   }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  let menuOpen = false;
+
+  function openMenu() {
+    menuOpen = true;
+    navLinks?.classList.add('open');
+    menuBtn?.classList.add('is-open');
+    backdrop?.classList.add('active');
+    menuBtn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menuOpen = false;
+    navLinks?.classList.remove('open');
+    menuBtn?.classList.remove('is-open');
+    backdrop?.classList.remove('active');
+    menuBtn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  menuBtn?.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+  backdrop?.addEventListener('click', closeMenu);
+
+  /* Cerrar al pulsar un enlace */
+  navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 </script>
 
+<div class="nav-backdrop" id="nav-backdrop"></div>
 <header class="header">
   <div class="header-inner">
     <div class="nav-brand">
-      <img src="/src/images/logo_sinfondo.png" alt="Logo ALJE Solutions" />
-      <span>ALJE Solutions</span>
+      <img src="/logo_andcode.png" alt="Logo AnD Code" />
+      <span>AnD Code</span>
     </div>
-    <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#trabajos">Trabajos</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#contacto" class="nav-cta">Contacto</a></li>
     </ul>
   </div>
