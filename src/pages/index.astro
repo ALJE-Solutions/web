@@ -223,7 +223,7 @@ import top541Img from '../images/541.png';
 	</script>
 
 	<!-- ═══════════════ SERVICIOS ═══════════════ -->
-	<section id="servicios" class="section">
+	<section id="servicios" class="section dark-section">
 		<p class="section-tag">NUESTROS SERVICIOS</p>
 		<h2 class="section-title">Soluciones digitales para cada etapa de tu negocio</h2>
 		<p class="section-sub">Ofrecemos servicios integrales para potenciar tu presencia digital y hacer crecer tu negocio.</p>
@@ -417,7 +417,7 @@ import top541Img from '../images/541.png';
 	</section>
 
 	<!-- ═══════════════ NUESTROS TRABAJOS ═══════════════ -->
-	<section id="trabajos" class="section">
+	<section id="trabajos" class="section dark-section">
 		<p class="section-tag">PORTFOLIO</p>
 		<h2 class="section-title">Nuestros Trabajos</h2>
 		<p class="section-sub">Algunos de los proyectos en los que hemos trabajado.</p>
@@ -605,10 +605,7 @@ import top541Img from '../images/541.png';
 /* ═══════════ SECTORS ═══════════ */
 .sectors {
 	padding: 5rem 2rem;
-	background: #1c1c2e;
-	background-image:
-		radial-gradient(ellipse at 80% 30%, rgba(91,107,245,0.18) 0%, transparent 55%),
-		radial-gradient(ellipse at 20% 70%, rgba(91,107,245,0.10) 0%, transparent 50%);
+	background: #ffffff;
 }
 .sectors-inner {
 	max-width: 1100px;
@@ -625,7 +622,7 @@ import top541Img from '../images/541.png';
 	text-align: left;
 }
 .sectors-text .section-title {
-	color: #ffffff;
+	color: #1c1c2e;
 	text-align: left;
 	margin-bottom: 0;
 }
@@ -925,6 +922,28 @@ import top541Img from '../images/541.png';
 	font-weight: 700;
 	position: absolute;
 	left: 0;
+}
+
+/* Service cards on dark bg */
+.dark-section .service-card {
+	background: rgba(255,255,255,0.05);
+	border-color: rgba(255,255,255,0.08);
+	border-top: 3px solid transparent;
+}
+.dark-section .service-card:hover {
+	background: rgba(255,255,255,0.08);
+	border-top-color: #5B6BF5;
+	box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.dark-section .service-icon {
+	background: rgba(91,107,245,0.18);
+}
+.dark-section .service-card h3 {
+	color: #ffffff;
+}
+.dark-section .service-card > p,
+.dark-section .service-features li {
+	color: rgba(255,255,255,0.60);
 }
 
 /* ═══════════ PACKS ═══════════ */
@@ -1227,6 +1246,17 @@ import top541Img from '../images/541.png';
 	line-height: 1.65;
 	margin: 0;
 }
+
+/* Portfolio cards on dark bg */
+.dark-section .portfolio-card {
+	background: rgba(255,255,255,0.05);
+	box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+.dark-section .portfolio-card:hover {
+	box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.dark-section .portfolio-info h3 { color: #ffffff; }
+.dark-section .portfolio-info p  { color: rgba(255,255,255,0.60); }
 
 @media (max-width: 900px) {
 	.portfolio-grid {
