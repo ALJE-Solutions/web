@@ -51,7 +51,7 @@ import top541Img from '../images/541.png';
 	<!-- ═══════════════ SECTORES ═══════════════ -->
 	<section class="sectors section-alt">
 		<p class="section-tag">¿A QUIÉN AYUDAMOS?</p>
-		<h2 class="section-title">La solución digital perfecta<br/>para tu <span class="accent" id="sectorTypewriter">restaurante</span><span class="typewriter-cursor">|</span></h2>
+		<h2 class="section-title">La solución digital perfecta<br/>para tu negocio</h2>
 
 		<div class="sectors-code-window">
 			<div class="code-window-bar">
@@ -60,7 +60,7 @@ import top541Img from '../images/541.png';
 				<span class="dot dot-green"></span>
 				<span class="code-window-title">cliente.js</span>
 			</div>
-			<pre class="code-body"><code><span class="code-keyword">const</span> <span class="code-var">cliente</span> = <span class="code-string">"<span id="codeTypewriter">restaurante</span>"</span>
+			<pre class="code-body"><code><span class="code-keyword">const</span> <span class="code-var">cliente</span> = <span class="code-string">"<span id="codeTypewriter">restaurante</span><span class="typewriter-cursor">|</span>"</span>
 
 <span class="code-keyword">function</span> <span class="code-fn">buildSolution</span>(negocio) &#123;
   <span class="code-keyword">return</span> &#123;
@@ -80,13 +80,11 @@ import top541Img from '../images/541.png';
 			'restaurante', 'clínica', 'gimnasio', 'inmobiliaria',
 			'peluquería', 'taller', 'academia', 'comercio', 'startup', 'asesoría'
 		];
-		const elTitle = document.getElementById('sectorTypewriter') as HTMLElement | null;
 		const elCode  = document.getElementById('codeTypewriter')   as HTMLElement | null;
 		let wi = 0, ci = 0, deleting = false;
 		function tick() {
 			const word = words[wi];
 			const text = deleting ? word.slice(0, --ci) : word.slice(0, ++ci);
-			if (elTitle) elTitle.textContent = text;
 			if (elCode)  elCode.textContent  = text;
 			if (!deleting && ci === word.length) {
 				deleting = true; setTimeout(tick, 1800); return;
@@ -615,18 +613,18 @@ import top541Img from '../images/541.png';
 	margin-bottom: 2.5rem;
 }
 .typewriter-cursor {
-	color: #5B6BF5;
+	color: inherit;
 	font-weight: 300;
 	animation: blink 0.75s step-end infinite;
 	font-size: 0.85em;
-	margin-left: 2px;
+	margin-left: 1px;
 }
 @keyframes blink {
 	0%, 100% { opacity: 1; }
 	50%       { opacity: 0; }
 }
 .sectors-code-window {
-	max-width: 680px;
+	max-width: 460px;
 	margin: 0 auto;
 	background: #0d0d1a;
 	border: 1px solid rgba(91,107,245,0.25);
