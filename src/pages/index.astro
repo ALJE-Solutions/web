@@ -50,17 +50,15 @@ import top541Img from '../images/541.png';
 
 	<!-- ═══════════════ SECTORES ═══════════════ -->
 	<section class="sectors section-alt">
-		<p class="section-tag">¿A QUIÉN AYUDAMOS?</p>
-		<h2 class="section-title">La solución digital perfecta<br/>para tu negocio</h2>
-
-		<div class="sectors-code-window">
-			<div class="code-window-bar">
-				<span class="dot dot-red"></span>
-				<span class="dot dot-yellow"></span>
-				<span class="dot dot-green"></span>
-				<span class="code-window-title">cliente.js</span>
-			</div>
-			<pre class="code-body"><code><span class="code-keyword">const</span> <span class="code-var">cliente</span> = <span class="code-string">"<span id="codeTypewriter">restaurante</span><span class="typewriter-cursor">|</span>"</span>
+		<div class="sectors-inner">
+			<div class="sectors-code-window">
+				<div class="code-window-bar">
+					<span class="dot dot-red"></span>
+					<span class="dot dot-yellow"></span>
+					<span class="dot dot-green"></span>
+					<span class="code-window-title">cliente.js</span>
+				</div>
+				<pre class="code-body"><code><span class="code-keyword">const</span> <span class="code-var">cliente</span> = <span class="code-string">"<span id="codeTypewriter">restaurante</span><span class="typewriter-cursor">|</span>"</span>
 
 <span class="code-keyword">function</span> <span class="code-fn">buildSolution</span>(negocio) &#123;
   <span class="code-keyword">return</span> &#123;
@@ -72,6 +70,11 @@ import top541Img from '../images/541.png';
 
 <span class="code-fn">console</span>.<span class="code-fn">log</span>(<span class="code-fn">buildSolution</span>(cliente))
 <span class="code-comment">// ✓ Proyecto entregado 🚀</span></code></pre>
+			</div>
+			<div class="sectors-text">
+				<p class="section-tag">¿A QUIÉN AYUDAMOS?</p>
+				<h2 class="section-title">La solución digital perfecta<br/>para tu negocio</h2>
+			</div>
 		</div>
 	</section>
 
@@ -607,10 +610,24 @@ import top541Img from '../images/541.png';
 /* ═══════════ SECTORS TYPEWRITER ═══════════ */
 .sectors {
 	padding: 5rem 2rem 4.5rem;
-	text-align: center;
 }
-.sectors .section-title {
-	margin-bottom: 2.5rem;
+.sectors-inner {
+	max-width: 900px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 3.5rem;
+	align-items: center;
+}
+.sectors-text {
+	text-align: left;
+}
+.sectors-text .section-tag,
+.sectors-text .section-title {
+	text-align: left;
+}
+.sectors-text .section-title {
+	margin-bottom: 0;
 }
 .typewriter-cursor {
 	color: inherit;
@@ -624,11 +641,10 @@ import top541Img from '../images/541.png';
 	50%       { opacity: 0; }
 }
 .sectors-code-window {
-	max-width: 420px;
-	aspect-ratio: 1 / 1;
+	width: 320px;
+	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
-	margin: 0 auto;
 	background: #0d0d1a;
 	border: 1px solid rgba(91,107,245,0.25);
 	border-radius: 14px;
@@ -637,17 +653,24 @@ import top541Img from '../images/541.png';
 	text-align: left;
 }
 .sectors-code-window .code-body {
-	flex: 1;
-	overflow-y: hidden;
+	font-size: 0.8rem;
+	line-height: 1.65;
+	padding: 1.1rem 1.3rem;
 }
 
 @media (max-width: 900px) {
-	.sectors .section-title { font-size: 2rem; }
+	.sectors-inner {
+		grid-template-columns: 1fr;
+		text-align: center;
+	}
+	.sectors-text { text-align: center; }
+	.sectors-text .section-tag,
+	.sectors-text .section-title { text-align: center; }
+	.sectors-code-window { width: 100%; max-width: 380px; margin: 0 auto; }
 }
 @media (max-width: 600px) {
 	.sectors { padding: 3.5rem 1.5rem 3rem; }
-	.sectors .section-title { font-size: 1.6rem; }
-	.sectors-code-window { max-width: 100%; aspect-ratio: auto; }
+	.sectors-text .section-title { font-size: 1.6rem; }
 }
 
 /* ═══════════ HERO ═══════════ */
