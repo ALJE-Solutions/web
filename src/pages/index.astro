@@ -624,13 +624,21 @@ import top541Img from '../images/541.png';
 	50%       { opacity: 0; }
 }
 .sectors-code-window {
-	max-width: 460px;
+	max-width: 420px;
+	aspect-ratio: 1 / 1;
+	display: flex;
+	flex-direction: column;
 	margin: 0 auto;
 	background: #0d0d1a;
 	border: 1px solid rgba(91,107,245,0.25);
 	border-radius: 14px;
 	overflow: hidden;
 	box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+	text-align: left;
+}
+.sectors-code-window .code-body {
+	flex: 1;
+	overflow-y: hidden;
 }
 
 @media (max-width: 900px) {
@@ -639,7 +647,7 @@ import top541Img from '../images/541.png';
 @media (max-width: 600px) {
 	.sectors { padding: 3.5rem 1.5rem 3rem; }
 	.sectors .section-title { font-size: 1.6rem; }
-	.sectors-code-window { max-width: 100%; }
+	.sectors-code-window { max-width: 100%; aspect-ratio: auto; }
 }
 
 /* ═══════════ HERO ═══════════ */
