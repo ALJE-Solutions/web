@@ -424,7 +424,23 @@ import top541Img from '../images/541.png';
 
 		<div class="portfolio-grid">
 
-			<!-- PROYECTO 1 — Hermandad de Santa Ángela -->
+			<!-- PROYECTO 1 — Flitly -->
+			<div class="portfolio-card portfolio-card--featured">
+				<span class="portfolio-featured-badge">Nuestro proyecto más grande</span>
+				<div class="portfolio-img">
+					<img src={flitlyImg.src} alt="Flitly" class="portfolio-screenshot" />
+					<div class="portfolio-overlay">
+						<a href="https://www.flitly.es/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">Ver proyecto →</a>
+					</div>
+				</div>
+				<div class="portfolio-info">
+					<span class="portfolio-tag">Web + App Móvil</span>
+					<h3>Flitly</h3>
+					<p>Desarrollo completo de la web y la app móvil de Flitly, marketplace que conecta deportistas con propietarios de material deportivo y acuático. Más de 50 categorías de equipos, reservas instantáneas, chat integrado, reseñas verificadas, pagos protegidos y seguro incluido en cada alquiler.</p>
+				</div>
+			</div>
+
+			<!-- PROYECTO 2 — Hermandad de Santa Ángela -->
 			<div class="portfolio-card">
 				<div class="portfolio-img">
 					<img src={hermandadImg.src} alt="Hermandad de Santa Ángela" class="portfolio-screenshot" />
@@ -436,21 +452,6 @@ import top541Img from '../images/541.png';
 					<span class="portfolio-tag">Web Institucional</span>
 					<h3>Hermandad de Santa Ángela</h3>
 					<p>Web cofrade para la Hermandad Sacramental de Santa Ángela de la Cruz en Sanlúcar de Barrameda. Noticias, cultos, titulares y vida hermandad.</p>
-				</div>
-			</div>
-
-			<!-- PROYECTO 2 — Flitly -->
-			<div class="portfolio-card">
-				<div class="portfolio-img">
-					<img src={flitlyImg.src} alt="Flitly" class="portfolio-screenshot" />
-					<div class="portfolio-overlay">
-						<a href="https://www.flitly.es/" target="_blank" rel="noopener noreferrer" class="portfolio-btn">Ver proyecto →</a>
-					</div>
-				</div>
-				<div class="portfolio-info">
-					<span class="portfolio-tag">Web + App Móvil</span>
-					<h3>Flitly</h3>
-					<p>Desarrollo completo de la plataforma web y la aplicación móvil de Flitly. Conecta deportistas con propietarios de equipos para alquiler instantáneo, con pagos seguros y seguro incluido.</p>
 				</div>
 			</div>
 
@@ -1173,6 +1174,25 @@ import top541Img from '../images/541.png';
 	transition: transform 0.3s, box-shadow 0.3s;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+}
+.portfolio-card--featured {
+	border: 2px solid #5B6BF5;
+	box-shadow: 0 4px 28px rgba(91,107,245,0.20);
+}
+.portfolio-featured-badge {
+	position: absolute;
+	top: 0.8rem;
+	left: 0.8rem;
+	z-index: 2;
+	background: #5B6BF5;
+	color: #fff;
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.3px;
+	padding: 0.3rem 0.8rem;
+	border-radius: 20px;
+	box-shadow: 0 2px 10px rgba(91,107,245,0.45);
 }
 .portfolio-card:hover {
 	transform: translateY(-5px);
