@@ -1,6 +1,7 @@
 ---
 import Header from '../pages/header.astro';
 import Footer from '../pages/footer.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 
 interface Props {
   title?: string;
@@ -9,6 +10,11 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
+  /** Color de fondo de la última sección de la página, para que la ola
+   * que precede al footer (siempre oscuro) conecte sin salto. Por
+   * defecto blanco, que es el color con el que termina la mayoría de
+   * páginas. */
+  footerTopColor?: string;
 }
 
 const {
@@ -19,6 +25,7 @@ const {
   canonical = Astro.url.href,
   ogImage = '/og-image.png',
   noindex = false,
+  footerTopColor = '#ffffff',
 } = Astro.props;
 
 const siteName = 'AnD Code';
@@ -135,6 +142,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
   <slot />
 </main>
 
+<WaveDivider topColor={footerTopColor} bottomColor="#1c1c2e" />
 <Footer />
 
 <!-- ═══════════ WHATSAPP BUTTON ═══════════ -->

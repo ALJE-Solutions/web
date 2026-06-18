@@ -20,9 +20,14 @@ const { topColor, bottomColor } = Astro.props;
   .wave-divider {
     width: 100%;
     line-height: 0;
-    margin: 0;
+    /* Solapa 1px arriba y abajo con las secciones vecinas (mismo color
+       en ese punto) para tapar el hairline que algunos navegadores
+       dejan ver entre el SVG y el bloque contiguo por redondeo de
+       subpíxeles. */
+    margin: -1px 0;
     padding: 0;
     display: block;
+    position: relative;
   }
   .wave-divider svg {
     display: block;
