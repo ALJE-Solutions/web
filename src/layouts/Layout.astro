@@ -238,13 +238,16 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     margin: 0 auto;
     padding: 0;
   }
-  /* Pages that aren't index.astro need top padding for fixed header */
+  /* Pages that aren't index.astro need top padding for the fixed header.
+     Fuera de la home el header siempre está en su estado "scrolled"
+     (compacto), así que el hueco debe coincidir con esa altura real
+     (~58-64px) y no con la del header expandido de la home (~80px). */
   main:not(:has(.hero)) {
-    padding-top: 80px;
+    padding-top: 64px;
   }
   @media (max-width: 800px) {
     main { padding: 0; }
-    main:not(:has(.hero)) { padding-top: 70px; }
+    main:not(:has(.hero)) { padding-top: 64px; }
   }
 
   /* ═══════════ COOKIE BANNER ═══════════ */
