@@ -1,0 +1,38 @@
+---
+// Separador en forma de ola que conecta dos secciones de color distinto.
+// topColor = color de la sección de arriba (fondo del propio separador).
+// bottomColor = color de la sección de abajo (relleno de la ola, que
+// "crece" desde la base y se funde sin corte con la siguiente sección).
+interface Props {
+  topColor: string;
+  bottomColor: string;
+}
+const { topColor, bottomColor } = Astro.props;
+---
+
+<div class="wave-divider" style={`background:${topColor}`}>
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill={bottomColor}></path>
+  </svg>
+</div>
+
+<style>
+  .wave-divider {
+    width: 100%;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 70px;
+  }
+  @media (max-width: 768px) {
+    .wave-divider svg { height: 48px; }
+  }
+  @media (max-width: 480px) {
+    .wave-divider svg { height: 32px; }
+  }
+</style>

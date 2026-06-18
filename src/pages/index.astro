@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import WaveDivider from '../components/WaveDivider.astro';
 import flitlyImg from '../images/flitly.png';
 import hermandadImg from '../images/hermandad.png';
 import top541Img from '../images/541.png';
@@ -42,6 +43,8 @@ import top541Img from '../images/541.png';
 			</div>
 		</div>
 	</section>
+
+	<WaveDivider topColor="#1c1c2e" bottomColor="#ffffff" />
 
 	<!-- ═══════════════ SECTORES ═══════════════ -->
 	<section class="sectors">
@@ -222,6 +225,8 @@ import top541Img from '../images/541.png';
 		});
 	</script>
 
+	<WaveDivider topColor="#ffffff" bottomColor="#1c1c2e" />
+
 	<!-- ═══════════════ SERVICIOS ═══════════════ -->
 	<section id="servicios" class="section dark-section">
 		<p class="section-tag">NUESTROS SERVICIOS</p>
@@ -279,6 +284,8 @@ import top541Img from '../images/541.png';
 			</div>
 		</div>
 	</section>
+
+	<WaveDivider topColor="#1c1c2e" bottomColor="#f5f7fa" />
 
 	<!-- ═══════════════ PACKS ═══════════════ -->
 	<section id="packs" class="section section-alt">
@@ -339,11 +346,7 @@ import top541Img from '../images/541.png';
 	</section>
 
 	<!-- ═══════════════ NOSOTROS ═══════════════ -->
-	<div class="wave-divider wave-to-dark">
-		<svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill="#1c1c2e"/>
-		</svg>
-	</div>
+	<WaveDivider topColor="#f5f7fa" bottomColor="#1c1c2e" />
 	<section id="nosotros" class="section dark-section">
 		<p class="section-tag">¿QUIÉNES SOMOS?</p>
 		<h2 class="section-title">Transformamos tu visión en realidad digital</h2>
@@ -381,11 +384,7 @@ import top541Img from '../images/541.png';
 		</div>
 	</section>
 
-	<div class="wave-divider wave-from-dark">
-		<svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M0,35 C240,0 480,70 720,35 C960,0 1200,70 1440,35 L1440,0 L0,0 Z" fill="#1c1c2e"/>
-		</svg>
-	</div>
+	<WaveDivider topColor="#1c1c2e" bottomColor="#f5f7fa" />
 	<!-- ═══════════════ PROCESO ═══════════════ -->
 	<section id="proceso" class="section section-alt">
 		<p class="section-tag">NUESTRO PROCESO</p>
@@ -415,6 +414,8 @@ import top541Img from '../images/541.png';
 			</div>
 		</div>
 	</section>
+
+	<WaveDivider topColor="#f5f7fa" bottomColor="#1c1c2e" />
 
 	<!-- ═══════════════ NUESTROS TRABAJOS ═══════════════ -->
 	<section id="trabajos" class="section dark-section">
@@ -475,6 +476,8 @@ import top541Img from '../images/541.png';
 			<a href="/casos-de-exito" class="btn-outline-light">Ver casos de éxito detallados →</a>
 		</div>
 	</section>
+
+	<WaveDivider topColor="#1c1c2e" bottomColor="#ffffff" />
 
 	<!-- ═══════════════ CONTACTO ═══════════════ -->
 	<section id="contacto" class="section">
@@ -835,30 +838,6 @@ import top541Img from '../images/541.png';
 .dark-section .about-card h3 { color: #ffffff; }
 .dark-section .about-card p { color: rgba(255,255,255,0.60); }
 .dark-section .about-icon { filter: grayscale(0); }
-
-/* ═══════════ WAVE DIVIDERS ═══════════ */
-.wave-divider {
-	width: 100%;
-	line-height: 0;
-	margin: 0;
-	padding: 0;
-	display: block;
-}
-.wave-divider svg {
-	display: block;
-	width: 100%;
-	height: 70px;
-}
-.wave-to-dark {
-	background: #ffffff;
-}
-.wave-from-dark {
-	background: #1c1c2e;
-}
-/* Between section-alt and dark */
-.section-before-dark + .wave-divider.wave-to-dark {
-	background: #f5f7fa;
-}
 
 /* ═══════════ SERVICES ═══════════ */
 .services-grid {
