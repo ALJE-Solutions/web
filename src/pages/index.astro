@@ -357,29 +357,37 @@ import top541Img from '../images/541.png';
 				<div class="about-icon">
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
 				</div>
-				<h3>Enfoque personalizado</h3>
-				<p>Cada proyecto es único. Trabajamos contigo para entender tus necesidades y crear soluciones a medida.</p>
+				<div class="about-text">
+					<h3>Enfoque personalizado</h3>
+					<p>Cada proyecto es único. Trabajamos contigo para entender tus necesidades y crear soluciones a medida.</p>
+				</div>
 			</div>
 			<div class="about-card">
 				<div class="about-icon">
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
 				</div>
-				<h3>Tecnología de vanguardia</h3>
-				<p>Utilizamos las últimas tecnologías para garantizar que tu proyecto sea robusto, escalable y preparado para el futuro.</p>
+				<div class="about-text">
+					<h3>Tecnología de vanguardia</h3>
+					<p>Utilizamos las últimas tecnologías para garantizar que tu proyecto sea robusto, escalable y preparado para el futuro.</p>
+				</div>
 			</div>
 			<div class="about-card">
 				<div class="about-icon">
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
 				</div>
-				<h3>Comunicación constante</h3>
-				<p>Mantenemos comunicación fluida durante todo el proceso, asegurándonos de que estés informado en cada etapa.</p>
+				<div class="about-text">
+					<h3>Comunicación constante</h3>
+					<p>Mantenemos comunicación fluida durante todo el proceso, asegurándonos de que estés informado en cada etapa.</p>
+				</div>
 			</div>
 			<div class="about-card">
 				<div class="about-icon">
 					<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
 				</div>
-				<h3>Resultados medibles</h3>
-				<p>Nos enfocamos en métricas reales y resultados tangibles que demuestran el impacto de nuestro trabajo.</p>
+				<div class="about-text">
+					<h3>Resultados medibles</h3>
+					<p>Nos enfocamos en métricas reales y resultados tangibles que demuestran el impacto de nuestro trabajo.</p>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -1053,6 +1061,9 @@ import top541Img from '../images/541.png';
 	display: flex;
 	gap: 1.2rem;
 	align-items: flex-start;
+	/* evita que este item del grid se desborde por su min-content
+	   por defecto en pantallas estrechas */
+	min-width: 0;
 }
 .about-card:hover {
 	transform: translateY(-4px);
@@ -1073,6 +1084,13 @@ import top541Img from '../images/541.png';
 .about-icon svg {
 	width: 22px;
 	height: 22px;
+}
+.about-text {
+	/* min-width:0 evita que este hijo flex se desborde por su
+	   min-content por defecto y permite que el texto haga wrap
+	   correctamente en pantallas estrechas. */
+	flex: 1;
+	min-width: 0;
 }
 .about-card h3 {
 	color: #1c1c2e;
