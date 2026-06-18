@@ -259,12 +259,19 @@
     const menuBtn  = document.querySelector('.menu-toggle') as HTMLElement | null;
     const drawer   = document.getElementById('nav-drawer');
 
-    /* Scroll: transparente → blanco */
+    /* Scroll: transparente → blanco (solo en home, donde el header
+       se solapa con el hero oscuro; en el resto de páginas el header
+       empieza siempre en blanco para no quedar invisible) */
+    const isHome = window.location.pathname === '/';
     function onScroll() {
       header?.classList.toggle('scrolled', window.scrollY > 50);
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    if (isHome) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    } else {
+      header?.classList.add('scrolled');
+    }
 
     let menuOpen = false;
 
